@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legatsy Digital Marketing Agency</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>We offer Best Solutions</h1>
+        <p>Let’s work together</p>
+        <button onclick="scrollToSection('services')">Get started today</button>
+    </section>
+
+    <section id="about">
+        <h2>About Legatsy Digital Marketing Agency</h2>
+        <p>Founded in March 2024, Legatsy Digital Marketing Agency (LDMA) is a brand name under 9512-0606 Québec inc.</p>
+        <button onclick="scrollToSection('services')">Read more</button>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service">
+            <h3>Marketing Strategy</h3>
+            <p>We develop a facts-backed marketing strategy based on thorough industry, competitive, and customer analysis.</p>
+            <button>Find out more</button>
+        </div>
+        <div class="service">
+            <h3>Branding</h3>
+            <p>We help you develop your brand strategy, voice, and story, including brand colors, logo, and website design.</p>
+            <button>Find out more</button>
+        </div>
+        <div class="service">
+            <h3>Lead Generation</h3>
+            <p>We provide organic and paid advertising services on social media platforms.</p>
+            <button>Find out more</button>
+        </div>
+        <div class="service">
+            <h3>Client Retention</h3>
+            <p>We offer CRM systems, including email marketing, to help businesses retain their clients.</p>
+            <button>Find out more</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us Today</h2>
+        <p>Let’s help you build your Legatsy!</p>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Legatsy Digital Marketing Agency. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
