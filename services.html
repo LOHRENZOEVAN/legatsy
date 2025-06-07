@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Legatsy Digital</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #fff; }
+
+    header {
+      background-color: #fca311;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo { font-weight: bold; font-size: 1.2rem; color: #fff; }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: linear-gradient(45deg, #fca311 50%, #000 50%);
+      color: white;
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .intro {
+      background: #fef1dc;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem 1.5rem;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 300px;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .service-card p {
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .service-card a {
+      margin: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #fca311;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .service-card a:hover {
+      background: #e08900;
+    }
+
+    .cta-section {
+      background: linear-gradient(to right, white, #d08a00);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-section img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-right: 1.5rem;
+    }
+
+    .cta-text {
+      color: white;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: #f77f00;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #3d2b1f;
+      color: white;
+      padding: 2rem 1.5rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-grid div {
+      flex: 1 1 200px;
+    }
+
+    h3, h4 {
+      color: #fca311;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .cta-section { flex-direction: column; text-align: center; }
+      .cta-section img { margin: 0 0 1rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown">
+          <li><a href="services.html">Services ▾</a></li>
+          <ul class="dropdown-content">
+            <li><a href="marketresearch.html">Market Research</a></li>
+  <li><a href="socialmedia.html">Social Media Marketing</a></li>
+  <li><a href="seo.html">SEO Management</a></li>
+  <li><a href="webdesign.html">Web Development</a></li>
+  <li><a href="paidad.html">Paid Advertising</a></li>        
+          </ul>
+        </li>
+        <li><a href="#">Contact Us</a></li>
+        <li><button class="lang-btn">🇨🇦 EN ⌃</button></li>
+      </ul>
+    </nav>
+    <a class="contact-btn" href="#">📞 Contact us today</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Services</h1>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro">
+    <p>You’ve got a marketing problem?</p>
+    <h2>Let’s help you build your Legatsy through our cutting edge services</h2>
+    <p>Scale Your Business with our Data–Driven Digital Marketing Solutions!</p>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-grid">
+    <div class="service-card">
+      <img src="images/service1.jpg" alt="Market Research">
+      <h3>Market Research</h3>
+      <p>Businesses looking to understand their target audience and market trends.</p>
+      <a href="#">Learn more →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="images/service2.jpg" alt="Social Media Marketing">
+      <h3>Social Media Marketing</h3>
+      <p>Brands looking to increase social media presence and engagement.</p>
+      <a href="#">Learn more →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="images/service3.jpg" alt="SEO">
+      <h3>SEO management</h3>
+      <p>Businesses seeking to improve online visibility and search engine rankings.</p>
+      <a href="#">Learn more →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="images/service4.jpg" alt="Paid Ads">
+      <h3>Paid advertising</h3>
+      <p>Brands needing quick, measurable results through digital ads.</p>
+      <a href="#">Learn more →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="images/service5.jpg" alt="Web Design">
+      <h3>Web design and maintenance</h3>
+      <p>Businesses wanting a strong online presence.</p>
+      <a href="#">Learn more →</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <img src="images/info-9.jpg" alt="Laptop Woman"/>
+    <div class="cta-text">
+      <h2>Ready to scale your business with us?</h2>
+      <p>Fill our Business Needs Assessment Form below to get started</p>
+      <a href="#" class="btn">Let’s get started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Legatsy Digital</h3>
+        <p>Legatsy DMA’s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Home</li><li>About</li><li>Services</li><li>Contact Us</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service Overview</h4>
+        <ul>
+          <li>Market Research</li><li>Paid advertising</li><li>SEO management</li><li>Social Media Marketing</li><li>Web design and maintenance</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li>Privacy Policy</li><li>Terms of Service</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 2rem;">© 2025 • Legatsy Digital Marketing Agency • All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

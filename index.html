@@ -1,75 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legatsy Digital Marketing Agency</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legatsy Digital Marketing Agency</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+    .lang-btn { cursor: pointer; }
+  </style>
 </head>
+
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About Us</a></li>
+        <li class="dropdown">
+          <a href="services.html" class="nav-services">Services ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="marketresearch.html" class="nav-market">Market Research</a></li>
+            <li><a href="socialmedia.html" class="nav-social">Social Media Marketing</a></li>
+            <li><a href="seo.html" class="nav-seo">SEO Management</a></li>
+            <li><a href="webdesign.html" class="nav-web">Web Development</a></li>
+            <li><a href="paidad.html" class="nav-paid">Paid Advertising</a></li>
+          </ul>
+        </li>
+        
+        <li>
+          <button class="lang-btn" onclick="switchLanguage('en')"> EN</button>
+          <button class="lang-btn" onclick="switchLanguage('fr')"> FR</button>
+          <button class="lang-btn" onclick="switchLanguage('es')"> ES</button>
+        </li>
+      </ul>
+    </nav>
+    <a class="contact-btn" href="https://calendly.com/legatsy/" id="contact-btn">📞 Contact us today</a>
+  </header>
 
-    <section id="home" class="hero">
-        <h1>We offer Best Solutions</h1>
-        <p>Let’s work together</p>
-        <button onclick="scrollToSection('services')">Get started today</button>
+  <!-- ENGLISH CONTENT -->
+  <div id="content-en" class="lang-content active">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">We offer Best Solutions</span>
+        <span class="tagline">Let's work together</span>
+        <h1>Scale Your Business with our Data Driven Digital Marketing Solutions!</h1>
+        <p>Let's help you build your Legatsy</p>
+        <a href="services.html" class="btn-primary">Get started today</a>
+      </div>
+      <img src="images/Black-people-workplace.jpg" alt="Team working on laptop" />
     </section>
 
-    <section id="about">
+    <!-- Services Overview -->
+    <section class="services-intro">
+      <h2>You've got a marketing problem? We've got a solution!</h2>
+      <p>Let's help you build your Legatsy through our cutting edge services:</p>
+      <div class="services-grid">
+        <div class="service-box">
+          <h3>Marketing Strategy</h3>
+          <p>We fix deficient strategies through thorough industry, customer, and competitive analysis.</p>
+          <a href="services.html">Find out more →</a>
+        </div>
+        <div class="service-box">
+          <h3>Branding</h3>
+          <p>We help you develop your brand voice, colors, story, and design.</p>
+          <a href="services.html">Find out more →</a>
+        </div>
+        <div class="service-box">
+          <h3>Lead Generation</h3>
+          <p>Paid/organic marketing on Facebook, Instagram, LinkedIn, and TikTok.</p>
+          <a href="services.html">Find out more →</a>
+        </div>
+        <div class="service-box">
+          <h3>Client Retention</h3>
+          <p>CRM and email campaigns that help you retain clients effectively.</p>
+          <a href="services.html">Find out more →</a>
+        </div>
+        <div class="service-box">
+          <h3>Public Relations</h3>
+          <p>We help control your brand's online image using curated outreach tools.</p>
+          <a href="services.html">Find out more →</a>
+        </div>
+        <div class="service-box">
+          <h3>Business Intelligence</h3>
+          <p>Use analytics tools to optimize every step of your client journey.</p>
+          <a href="services.html">Find out more →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlight Services -->
+    <section class="highlight-services">
+      <div class="highlight">
+        <img src="images/legam1.jpg" alt="Market Research"/>
+        <div class="highlight-text">
+          <h3>Authentic Market Research</h3>
+          <p>For businesses looking to understand their target audience and market trends</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <img src="images/legam2.jpg" alt="Paid Advertising"/>
+        <div class="highlight-text">
+          <h3>Paid Advertising</h3>
+          <p>For brands needing quick, measurable results through digital ads</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-img">
+        <img src="images/banner-28.jpg" alt="Founder"/>
+      </div>
+      <div class="about-text">
         <h2>About Legatsy Digital Marketing Agency</h2>
-        <p>Founded in March 2024, Legatsy Digital Marketing Agency (LDMA) is a brand name under 9512-0606 Québec inc.</p>
-        <button onclick="scrollToSection('services')">Read more</button>
+        <p>Out of Fule's frustration of juggling prospecting, closing deals, monitoring trends, and corporate meetings as a financial security advisor, her desire to master the marketing game grew.</p>
+        <ul>
+          <li>📅 Founded in March 2024</li>
+          <li>📌 Legatsy DMA is a brand under 9512–0606 Québec Inc.</li>
+        </ul>
+        <a href="#" class="btn-secondary">Read more</a>
+      </div>
     </section>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="service">
-            <h3>Marketing Strategy</h3>
-            <p>We develop a facts-backed marketing strategy based on thorough industry, competitive, and customer analysis.</p>
-            <button>Find out more</button>
-        </div>
-        <div class="service">
-            <h3>Branding</h3>
-            <p>We help you develop your brand strategy, voice, and story, including brand colors, logo, and website design.</p>
-            <button>Find out more</button>
-        </div>
-        <div class="service">
-            <h3>Lead Generation</h3>
-            <p>We provide organic and paid advertising services on social media platforms.</p>
-            <button>Find out more</button>
-        </div>
-        <div class="service">
-            <h3>Client Retention</h3>
-            <p>We offer CRM systems, including email marketing, to help businesses retain their clients.</p>
-            <button>Find out more</button>
-        </div>
+    <!-- Clients -->
+    <section class="clients">
+      <h2>Our partners and clients</h2>
+      <p>We've helped entrepreneurs in NGOs, Healthcare, IT, Agri-food, Insurance, Coaching, Consulting & more.</p>
+      <div class="client-logos">
+        <img src="images/client1.png" alt="Client 1"/>
+        <img src="images/client2.png" alt="Client 2"/>
+        <img src="images/client3.png" alt="Client 3"/>
+        <img src="images/client4.png" alt="Client 4"/>
+        <img src="images/client5.png" alt="Client 5"/>
+        <img src="images/client6.png" alt="Client 6"/>
+      </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Us Today</h2>
-        <p>Let’s help you build your Legatsy!</p>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <h2>We generate results for our customers</h2>
+      <div class="testimonial-box">
+        <p>"In just 2 weeks of working with Fule, we began to perceive significant improvement. I appreciate her professionalism the most"</p>
+        <div class="author">
+          <img src="images/testimonial.jpg" alt="Dr. Harris Nicole" />
+          <span>⭐️⭐️⭐️⭐️⭐️</span>
+          <h4>Dr. Harris Nicole</h4>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>© 2024 Legatsy Digital Marketing Agency. All rights reserved.</p>
-    </footer>
+    <!-- Process Section -->
+    <section class="process">
+      <h2>Our Result driven Process</h2>
+      <p>We commit to sustainable results through these steps:</p>
+      <div class="process-steps">
+        <div>
+          <h4>STEP 1</h4>
+          <p>Business Assessment</p>
+          <p>The first step is to fill our Business Needs Assessment Form below to get started</p>
+        </div>
+        <div>
+          <h4>STEP 2</h4>
+          <p>Onboarding Call</p>
+          <p>You will be invited to an onboarding call to clarify your needs</p>
+        </div>
+        <div>
+          <h4>STEP 3</h4>
+          <p>Work Agreement</p>
+          <p>The next step is to sign a work agreement for the project</p>
+        </div>
+        <div>
+          <h4>STEP 4</h4>
+          <p>Fulfillment</p>
+          <p>We deliver and you review and we adjust and deliver</p>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <img src="images/info-9.jpg" alt="Woman on laptop"/>
+      <div>
+        <h2>Ready to scale your business with us?</h2>
+        <p>Fill our Business Needs Assessment Form below to get started</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn-primary">Let's get started</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FRENCH CONTENT -->
+  <div id="content-fr" class="lang-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">Nous offrons les meilleures solutions</span>
+        <span class="tagline">Travaillons ensemble</span>
+        <h1>Développez votre entreprise avec nos solutions de marketing numérique basées sur les données!</h1>
+        <p>Laissez-nous vous aider à construire votre Legatsy</p>
+        <a href="#" class="btn-primary">Commencer aujourd'hui</a>
+      </div>
+      <img src="images/Black-people-workplace.jpg" alt="Équipe travaillant sur ordinateur portable" />
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-intro">
+      <h2>Vous avez un problème de marketing? Nous avons une solution!</h2>
+      <p>Laissez-nous vous aider à construire votre Legatsy grâce à nos services de pointe:</p>
+      <div class="services-grid">
+        <div class="service-box">
+          <h3>Stratégie Marketing</h3>
+          <p>Nous corrigeons les stratégies déficientes grâce à une analyse approfondie de l'industrie, des clients et de la concurrence.</p>
+          <a href="#">En savoir plus →</a>
+        </div>
+        <div class="service-box">
+          <h3>Image de Marque</h3>
+          <p>Nous vous aidons à développer la voix, les couleurs, l'histoire et le design de votre marque.</p>
+          <a href="#">En savoir plus →</a>
+        </div>
+        <div class="service-box">
+          <h3>Génération de Prospects</h3>
+          <p>Marketing payant/organique sur Facebook, Instagram, LinkedIn et TikTok.</p>
+          <a href="#">En savoir plus →</a>
+        </div>
+        <div class="service-box">
+          <h3>Fidélisation Client</h3>
+          <p>CRM et campagnes email qui vous aident à fidéliser efficacement vos clients.</p>
+          <a href="#">En savoir plus →</a>
+        </div>
+        <div class="service-box">
+          <h3>Relations Publiques</h3>
+          <p>Nous aidons à contrôler l'image en ligne de votre marque en utilisant des outils de sensibilisation ciblés.</p>
+          <a href="#">En savoir plus →</a>
+        </div>
+        <div class="service-box">
+          <h3>Intelligence d'Affaires</h3>
+          <p>Utilisez des outils d'analyse pour optimiser chaque étape du parcours de vos clients.</p>
+          <a href="#">En savoir plus →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlight Services -->
+    <section class="highlight-services">
+      <div class="highlight">
+        <img src="images/legam1.jpg" alt="Recherche de marché"/>
+        <div class="highlight-text">
+          <h3>Recherche de Marché Authentique</h3>
+          <p>Pour les entreprises cherchant à comprendre leur public cible et les tendances du marché</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <img src="images/legam2.jpg" alt="Publicité payante"/>
+        <div class="highlight-text">
+          <h3>Publicité Payante</h3>
+          <p>Pour les marques ayant besoin de résultats rapides et mesurables grâce aux annonces numériques</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-img">
+        <img src="images/banner-28.jpg" alt="Fondatrice"/>
+      </div>
+      <div class="about-text">
+        <h2>À propos de Legatsy Digital Marketing Agency</h2>
+        <p>Suite à la frustration de Fule de jongler entre la prospection, la conclusion d'affaires, le suivi des tendances et les réunions d'entreprise en tant que conseillère en sécurité financière, son désir de maîtriser le jeu du marketing a grandi.</p>
+        <ul>
+          <li>📅 Fondée en mars 2024</li>
+          <li>📌 Legatsy DMA est une marque sous 9512–0606 Québec Inc.</li>
+        </ul>
+        <a href="#" class="btn-secondary">En savoir plus</a>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients">
+      <h2>Nos partenaires et clients</h2>
+      <p>Nous avons aidé des entrepreneurs dans les ONG, la santé, l'IT, l'agroalimentaire, l'assurance, le coaching, le conseil et plus encore.</p>
+      <div class="client-logos">
+        <img src="images/client1.png" alt="Client 1"/>
+        <img src="images/client2.png" alt="Client 2"/>
+        <img src="images/client3.png" alt="Client 3"/>
+        <img src="images/client4.png" alt="Client 4"/>
+        <img src="images/client5.png" alt="Client 5"/>
+        <img src="images/client6.png" alt="Client 6"/>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <h2>Nous générons des résultats pour nos clients</h2>
+      <div class="testimonial-box">
+        <p>"En seulement 2 semaines de travail avec Fule, nous avons commencé à percevoir une amélioration significative. J'apprécie surtout son professionnalisme"</p>
+        <div class="author">
+          <img src="images/testimonial.jpg" alt="Dr. Harris Nicole" />
+          <span>⭐️⭐️⭐️⭐️⭐️</span>
+          <h4>Dr. Harris Nicole</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+      <h2>Notre processus axé sur les résultats</h2>
+      <p>Nous nous engageons à des résultats durables grâce à ces étapes:</p>
+      <div class="process-steps">
+        <div>
+          <h4>ÉTAPE 1</h4>
+          <p>Évaluation d'entreprise</p>
+          <p>La première étape consiste à remplir notre formulaire d'évaluation des besoins d'entreprise ci-dessous pour commencer</p>
+        </div>
+        <div>
+          <h4>ÉTAPE 2</h4>
+          <p>Appel d'intégration</p>
+          <p>Vous serez invité à un appel d'intégration pour clarifier vos besoins</p>
+        </div>
+        <div>
+          <h4>ÉTAPE 3</h4>
+          <p>Accord de travail</p>
+          <p>L'étape suivante consiste à signer un accord de travail pour le projet</p>
+        </div>
+        <div>
+          <h4>ÉTAPE 4</h4>
+          <p>Réalisation</p>
+          <p>Nous livrons et vous examinez, nous ajustons et livrons</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <img src="images/info-9.jpg" alt="Femme sur ordinateur portable"/>
+      <div>
+        <h2>Prêt à développer votre entreprise avec nous?</h2>
+        <p>Remplissez notre formulaire d'évaluation des besoins d'entreprise ci-dessous pour commencer</p>
+        <a href="#" class="btn-primary">Commençons</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- SPANISH CONTENT -->
+  <div id="content-es" class="lang-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">Ofrecemos las mejores soluciones</span>
+        <span class="tagline">Trabajemos juntos</span>
+        <h1>¡Escala tu negocio con nuestras soluciones de marketing digital basadas en datos!</h1>
+        <p>Déjanos ayudarte a construir tu Legatsy</p>
+        <a href="#" class="btn-primary">Empezar hoy</a>
+      </div>
+      <img src="images/Black-people-workplace.jpg" alt="Equipo trabajando en laptop" />
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-intro">
+      <h2>¿Tienes un problema de marketing? ¡Tenemos una solución!</h2>
+      <p>Déjanos ayudarte a construir tu Legatsy a través de nuestros servicios de vanguardia:</p>
+      <div class="services-grid">
+        <div class="service-box">
+          <h3>Estrategia de Marketing</h3>
+          <p>Corregimos estrategias deficientes a través del análisis exhaustivo de la industria, clientes y competencia.</p>
+          <a href="#">Saber más →</a>
+        </div>
+        <div class="service-box">
+          <h3>Branding</h3>
+          <p>Te ayudamos a desarrollar la voz, colores, historia y diseño de tu marca.</p>
+          <a href="#">Saber más →</a>
+        </div>
+        <div class="service-box">
+          <h3>Generación de Leads</h3>
+          <p>Marketing pagado/orgánico en Facebook, Instagram, LinkedIn y TikTok.</p>
+          <a href="#">Saber más →</a>
+        </div>
+        <div class="service-box">
+          <h3>Retención de Clientes</h3>
+          <p>CRM y campañas de email que te ayudan a retener clientes efectivamente.</p>
+          <a href="#">Saber más →</a>
+        </div>
+        <div class="service-box">
+          <h3>Relaciones Públicas</h3>
+          <p>Ayudamos a controlar la imagen online de tu marca usando herramientas de divulgación curada.</p>
+          <a href="#">Saber más →</a>
+        </div>
+        <div class="service-box">
+          <h3>Inteligencia de Negocios</h3>
+          <p>Usa herramientas analíticas para optimizar cada paso del viaje de tus clientes.</p>
+          <a href="#">Saber más →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlight Services -->
+    <section class="highlight-services">
+      <div class="highlight">
+        <img src="images/legam1.jpg" alt="Investigación de mercado"/>
+        <div class="highlight-text">
+          <h3>Investigación de Mercado Auténtica</h3>
+          <p>Para empresas que buscan entender su audiencia objetivo y tendencias del mercado</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <img src="images/legam2.jpg" alt="Publicidad pagada"/>
+        <div class="highlight-text">
+          <h3>Publicidad Pagada</h3>
+          <p>Para marcas que necesitan resultados rápidos y medibles a través de anuncios digitales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-img">
+        <img src="images/banner-28.jpg" alt="Fundadora"/>
+      </div>
+      <div class="about-text">
+        <h2>Acerca de Legatsy Digital Marketing Agency</h2>
+        <p>De la frustración de Fule al hacer malabarismos con prospección, cerrar tratos, monitorear tendencias y reuniones corporativas como asesora de seguridad financiera, creció su deseo de dominar el juego del marketing.</p>
+        <ul>
+          <li>📅 Fundada en marzo 2024</li>
+          <li>📌 Legatsy DMA es una marca bajo 9512–0606 Québec Inc.</li>
+        </ul>
+        <a href="#" class="btn-secondary">Leer más</a>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients">
+      <h2>Nuestros socios y clientes</h2>
+      <p>Hemos ayudado a emprendedores en ONGs, Salud, IT, Agroalimentario, Seguros, Coaching, Consultoría y más.</p>
+      <div class="client-logos">
+        <img src="images/client1.png" alt="Cliente 1"/>
+        <img src="images/client2.png" alt="Cliente 2"/>
+        <img src="images/client3.png" alt="Cliente 3"/>
+        <img src="images/client4.png" alt="Cliente 4"/>
+        <img src="images/client5.png" alt="Cliente 5"/>
+        <img src="images/client6.png" alt="Cliente 6"/>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <h2>Generamos resultados para nuestros clientes</h2>
+      <div class="testimonial-box">
+        <p>"En solo 2 semanas de trabajar con Fule, comenzamos a percibir una mejora significativa. Lo que más aprecio es su profesionalismo"</p>
+        <div class="author">
+          <img src="images/testimonial.jpg" alt="Dr. Harris Nicole" />
+          <span>⭐️⭐️⭐️⭐️⭐️</span>
+          <h4>Dr. Harris Nicole</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+      <h2>Nuestro proceso orientado a resultados</h2>
+      <p>Nos comprometemos a resultados sostenibles a través de estos pasos:</p>
+      <div class="process-steps">
+        <div>
+          <h4>PASO 1</h4>
+          <p>Evaluación de Negocio</p>
+          <p>El primer paso es llenar nuestro Formulario de Evaluación de Necesidades de Negocio abajo para comenzar</p>
+        </div>
+        <div>
+          <h4>PASO 2</h4>
+          <p>Llamada de Incorporación</p>
+          <p>Serás invitado a una llamada de incorporación para aclarar tus necesidades</p>
+        </div>
+        <div>
+          <h4>PASO 3</h4>
+          <p>Acuerdo de Trabajo</p>
+          <p>El siguiente paso es firmar un acuerdo de trabajo para el proyecto</p>
+        </div>
+        <div>
+          <h4>PASO 4</h4>
+          <p>Cumplimiento</p>
+          <p>Entregamos y revisas, ajustamos y entregamos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <img src="images/info-9.jpg" alt="Mujer en laptop"/>
+      <div>
+        <h2>¿Listo para escalar tu negocio con nosotros?</h2>
+        <p>Llena nuestro Formulario de Evaluación de Necesidades de Negocio abajo para comenzar</p>
+        <a href="#" class="btn-primary">Empecemos</a>
+      </div>
+    </section>
+  </div>
+
+  <button id="scrollToTop" style="display:none;position:fixed;bottom:20px;right:20px;padding:0.5rem 1rem;background:#fca311;color:#fff;border:none;border-radius:50%;">↑</button>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-columns">
+      <div>
+        <h3>Legatsy Digital</h3>
+        <p id="footer-mission">Our mission is to support small business owners in managing and growing their client base with love and attention.</p>
+      </div>
+      <div>
+        <h4 id="footer-quick">Quick Links</h4>
+        <ul>
+          <li><a href="#" id="footer-home">Home</a></li>
+          <li><a href="about.html" id="footer-about">About</a></li>
+          <li><a href="services.html" id="footer-services">Services</a></li>
+          <li><a href="#" id="footer-contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 id="footer-service-overview">Service Overview</h4>
+        <ul>
+          <li><a href="marketresearch.html" id="footer-market">Market Research</a></li>
+          <li><a href="paidad.html" id="footer-paid">Paid Ads</a></li>
+          <li><a href="seo.html" id="footer-seo">SEO</a></li>
+          <li><a href="socialmedia.html" id="footer-social">Social Media</a></li>
+          <li><a href="webdesign.html" id="footer-web">Web Maintenance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 id="footer-legal">Legal</h4>
+        <ul>
+          <li><a href="privacy.html" id="footer-privacy">Privacy Policy</a></li>
+          <li><a href="privacy.html" id="footer-terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Legatsy Digital Marketing Agency. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Language switching function
+    function switchLanguage(lang) {
+      // Hide all content
+      document.querySelectorAll('.lang-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update navigation and footer text
+      updateNavigationText(lang);
+      updateFooterText(lang);
+      
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Update page language attribute
+      document.documentElement.lang = lang;
+    }
+
+    function updateNavigationText(lang) {
+      const navTexts = {
+        en: {
+          home: 'Home',
+          about: 'About Us',
+          services: 'Services ▾',
+          market: 'Market Research',
+          social: 'Social Media Marketing',
+          seo: 'SEO Management',
+          web: 'Web Development',
+          paid: 'Paid Advertising',
+          contact: 'Contact Us',
+          contactBtn: '📞 Contact us today'
+        },
+        fr: {
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services ▾',
+          market: 'Recherche de marché',
+          social: 'Marketing des médias sociaux',
+          seo: 'Gestion SEO',
+          web: 'Développement web',
+          paid: 'Publicité payante',
+          contact: 'Contactez-nous',
+          contactBtn: '📞 Contactez-nous aujourd\'hui'
+        },
+        es: {
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios ▾',
+          market: 'Investigación de mercado',
+          social: 'Marketing en redes sociales',
+          seo: 'Gestión SEO',
+          web: 'Desarrollo web',
+          paid: 'Publicidad pagada',
+          contact: 'Contáctanos',
+          contactBtn: '📞 Contáctanos hoy'
+        }
+      };
+
+      const texts = navTexts[lang];
+      document.querySelector('.nav-home').textContent = texts.home;
+      document.querySelector('.nav-about').textContent = texts.about;
+      document.querySelector('.nav-services').textContent = texts.services;
+      document.querySelector('.nav-market').textContent = texts.market;
+      document.querySelector('.nav-social').textContent = texts.social;
+      document.querySelector('.nav-seo').textContent = texts.seo;
+      document.querySelector('.nav-web').textContent = texts.web;
+      document.querySelector('.nav-paid').textContent = texts.paid;
+      document.querySelector('.nav-contact').textContent = texts.contact;
+      document.getElementById('contact-btn').textContent = texts.contactBtn;
+    }
+
+    function updateFooterText(lang) {
+      const footerTexts = {
+        en: {
+          mission: 'Our mission is to support small business owners in managing and growing their client base with love and attention.',
+          quick: 'Quick Links',
+          home: 'Home',
+          about: 'About',
+          services: 'Services',
+          contact: 'Contact Us',
+          serviceOverview: 'Service Overview',
+          market: 'Market Research',
+          paid: 'Paid Ads',
+          seo: 'SEO',
+          social: 'Social Media',
+          web: 'Web Maintenance',
+          legal: 'Legal',
+          privacy: 'Privacy Policy',
+          terms: 'Terms of Service'
+        },
+        fr: {
+          mission: 'Notre mission est de soutenir les propriétaires de petites entreprises dans la gestion et la croissance de leur clientèle avec amour et attention.',
+          quick: 'Liens rapides',
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services',
+          contact: 'Contactez-nous',
+          serviceOverview: 'Aperçu des services',
+          market: 'Recherche de marché',
+          paid: 'Publicités payantes',
+          seo: 'SEO',
+          social: 'Médias sociaux',
+          web: 'Maintenance web',
+          legal: 'Légal',
+          privacy: 'Politique de confidentialité',
+          terms: 'Conditions de service'
+        },
+        es: {
+          mission: 'Nuestra misión es apoyar a los propietarios de pequeñas empresas en la gestión y crecimiento de su base de clientes con amor y atención.',
+          quick: 'Enlaces rápidos',
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios',
+          contact: 'Contáctanos',
+          serviceOverview: 'Resumen de servicios',
+          market: 'Investigación de mercado',
+          paid: 'Anuncios pagados',
+          seo: 'SEO',
+          social: 'Redes sociales',
+          web: 'Mantenimiento web',
+          legal: 'Legal',
+          privacy: 'Política de privacidad',
+          terms: 'Términos de servicio'
+        }
+      };
+
+      const texts = footerTexts[lang];
+      document.getElementById('footer-mission').textContent = texts.mission;
+      document.getElementById('footer-quick').textContent = texts.quick;
+      document.getElementById('footer-home').textContent = texts.home;
+      document.getElementById('footer-about').textContent = texts.about;
+      document.getElementById('footer-services').textContent = texts.services;
+      document.getElementById('footer-contact').textContent = texts.contact;
+      document.getElementById('footer-service-overview').textContent = texts.serviceOverview;
+      document.getElementById('footer-market').textContent = texts.market;
+      document.getElementById('footer-paid').textContent = texts.paid;
+      document.getElementById('footer-seo').textContent = texts.seo;
+      document.getElementById('footer-social').textContent = texts.social;
+      document.getElementById('footer-web').textContent = texts.web;
+      document.getElementById('footer-legal').textContent = texts.legal;
+      document.getElementById('footer-privacy').textContent = texts.privacy;
+      document.getElementById('footer-terms').textContent = texts.terms;
+    }
+
+    // Auto-detect browser language on page load
+    window.addEventListener('load', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      const browserLanguage = navigator.language.substring(0, 2);
+      
+      let defaultLanguage = 'en';
+      
+      if (savedLanguage && ['en', 'fr', 'es'].includes(savedLanguage)) {
+        defaultLanguage = savedLanguage;
+      } else if (['fr', 'es'].includes(browserLanguage)) {
+        defaultLanguage = browserLanguage;
+      }
+      
+      if (defaultLanguage !== 'en') {
+        switchLanguage(defaultLanguage);
+      }
+    });
+  </script>
 </body>
 </html>

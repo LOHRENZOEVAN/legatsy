@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Legatsy Digital</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #fff; color: #222; }
+
+    header {
+      background-color: #fca311;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo { font-weight: bold; font-size: 1.2rem; color: #fff; }
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: linear-gradient(45deg, #fca311 50%, #000 50%);
+      color: white;
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .section {
+      padding: 3rem 1.5rem;
+    }
+    .about-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .about-row img {
+      max-width: 100%;
+      width: 400px;
+      border-radius: 8px;
+    }
+    .about-text {
+      flex: 1 1 300px;
+    }
+
+    .testimonial-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem 1.5rem;
+      background: #fdf0d3;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .testimonial {
+      flex: 1 1 300px;
+    }
+    .testimonial p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    .testimonial img {
+      border-radius: 50%;
+      width: 50px;
+    }
+
+    .testimonial-right {
+      flex: 1 1 300px;
+      background-image: url('images/happy-client.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 3rem;
+      color: white;
+      text-align: left;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: #f77f00;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .cta-section {
+      background: linear-gradient(to right, white, #d08a00);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-section img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-right: 1.5rem;
+    }
+
+    .cta-text {
+      color: white;
+    }
+
+    footer {
+      background: #3d2b1f;
+      color: white;
+      padding: 2rem 1.5rem;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-grid div {
+      flex: 1 1 200px;
+    }
+    h3, h4 {
+      color: #fca311;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .about-row { flex-direction: column; text-align: center; }
+      .testimonial-section { flex-direction: column; }
+      .cta-section { flex-direction: column; text-align: center; }
+      .cta-section img { margin: 0 0 1rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+ <!-- Header -->
+  <header class="topbar">
+    <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown">
+          <li><a href="services.html">Services ▾</a></li>
+          <ul class="dropdown-content">
+            <li><a href="marketresearch.html">Market Research</a></li>
+  <li><a href="socialmedia.html">Social Media Marketing</a></li>
+  <li><a href="seo.html">SEO Management</a></li>
+  <li><a href="webdesign.html">Web Development</a></li>
+  <li><a href="paidad.html">Paid Advertising</a></li>
+            
+          </ul>
+        </li>
+        <li><a href="#">Contact Us</a></li>
+        <li><button class="lang-btn">🇨🇦 EN ⌃</button></li>
+      </ul>
+    </nav>
+    <a class="contact-btn" href="#">📞 Contact us today</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>About Us</h1>
+  </section>
+
+  <!-- About Content -->
+  <section class="section about-row">
+    <img src="images/team.png" alt="Team discussion"/>
+    <div class="about-text">
+      <p>Out of Fule’s frustration of juggling with prospecting, closing deals, managing existing clients, monitoring market trends and attending corporate meetings as a financial security advisor, her desire to master the marketing game grew by the day.</p>
+      <p>Fule has trained hundreds of agricultural entrepreneurs in the past. And she is very passionate about supporting small and medium business owners to start and scale their businesses through her marketing services.</p>
+      <p><strong>Founded in March 2024</strong>, <strong>Legatsy Digital Marketing Agency (LDMA)</strong> is a brand name under 9512–0606 Québec inc., a company that was registered under the Québec Company Act.</p>
+      <p><strong>Legatsy DMA’s mission</strong> is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="testimonial-section">
+    <div class="testimonial">
+      <span>⭐⭐⭐⭐⭐</span>
+      <p>"In just 2 weeks of working with Fule, we began to perceive significant improvement. I appreciate her professionalism the most"</p>
+      <p><strong>Dr. Harris Nicole</strong><br/><span style="font-size: 0.9rem;">Just Like Family Home Care</span></p>
+    </div>
+    <div class="testimonial-right">
+      <h2>We generate results for our customers</h2>
+      <a href="#" class="btn" style="background: white; color: #000;">Get started today</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <img src="images/info-9.jpg" alt="Laptop Woman"/>
+    <div class="cta-text">
+      <h2>Ready to scale your business</h2>
+      <p>Fill our Business Needs Assessment Form below to get started</p>
+      <a href="#" class="btn">Let’s get started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Legatsy Digital</h3>
+        <p>Legatsy DMA’s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Home</li><li>About</li><li>Services</li><li>Contact Us</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service Overview</h4>
+        <ul>
+          <li>Market Research</li><li>Paid advertising</li><li>SEO management</li><li>Social Media Marketing</li><li>Web design and maintenance</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li>Privacy Policy</li><li>Terms of Service</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 2rem;">© 2025 • Legatsy Digital Marketing Agency • All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
