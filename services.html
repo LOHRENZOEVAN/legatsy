@@ -5,77 +5,205 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services | Legatsy Digital</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #fff; }
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    header {
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    .topbar {
       background-color: #fca311;
-      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
       flex-wrap: wrap;
+      position: relative;
     }
 
-    .logo { font-weight: bold; font-size: 1.2rem; color: #fff; }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
 
-    nav ul {
+    .logo span {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      flex: 1;
       display: flex;
-      gap: 1rem;
-      list-style: none;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
 
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #222;
+    }
+
+    .nav-links .dropdown-content a:hover {
+      background-color: #f5f5f5;
+    }
+
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .contact-btn {
+      background: #f77f00;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-btn:hover {
+      background: #e6720a;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.3rem 0.6rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(45deg, #fca311 50%, #000 50%);
       color: white;
-      padding: 5rem 1.5rem;
+      padding: 5rem 2rem;
       text-align: center;
     }
 
     .hero h1 {
       font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
+    /* Intro Section */
     .intro {
       background: #fef1dc;
-      padding: 2rem 1.5rem;
+      padding: 3rem 2rem;
       text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .intro h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #f77f00;
     }
 
     .intro p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro .subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    /* Services Grid */
+    .services-container {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .services-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      padding: 2rem 1.5rem;
-      justify-content: center;
+      justify-items: center;
     }
 
     .service-card {
       background: #fff;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      max-width: 300px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 350px;
+      width: 100%;
       text-align: center;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
     .service-card img {
@@ -84,202 +212,646 @@
       object-fit: cover;
     }
 
+    .service-card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .service-card h3 {
-      margin: 1rem 0 0.5rem;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #f77f00;
     }
 
     .service-card p {
-      padding: 0 1rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #555;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
     .service-card a {
-      margin: 1rem;
-      padding: 0.6rem 1.2rem;
+      padding: 0.8rem 1.5rem;
       background: #fca311;
       color: #fff;
       border-radius: 25px;
       font-weight: bold;
       text-decoration: none;
       transition: background 0.3s ease;
+      align-self: center;
     }
 
     .service-card a:hover {
       background: #e08900;
     }
 
+    /* CTA Section */
     .cta-section {
       background: linear-gradient(to right, white, #d08a00);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 2rem 1.5rem;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .cta-section img {
-      max-width: 300px;
+      max-width: 400px;
+      width: 100%;
       border-radius: 10px;
-      margin-right: 1.5rem;
+      flex-shrink: 0;
     }
 
     .cta-text {
+      flex: 1;
+      min-width: 300px;
       color: white;
+      text-align: right;
+      padding-left: 2rem;
+    }
+
+    .cta-text h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .cta-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
     }
 
     .btn {
       display: inline-block;
       margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       background: #f77f00;
       color: #fff;
       border-radius: 25px;
       font-weight: bold;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
+    .btn:hover {
+      background: #e6720a;
+    }
+
+    /* Footer */
     footer {
       background: #3d2b1f;
-      color: white;
-      padding: 2rem 1.5rem;
+      color: #fff;
+      padding: 2rem;
     }
 
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .footer-grid div {
-      flex: 1 1 200px;
+      flex: 1;
+      min-width: 180px;
     }
 
-    h3, h4 {
+    .footer-grid h4,
+    .footer-grid h3 {
       color: #fca311;
+      margin-bottom: 1rem;
+    }
+
+    .footer-grid ul li {
       margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .cta-section { flex-direction: column; text-align: center; }
-      .cta-section img { margin: 0 0 1rem 0; }
+    .footer-grid a:hover {
+      color: #fca311;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+
+    /* Language content visibility */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .logo {
+        order: 1;
+        text-align: center;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      .nav-links .dropdown-content {
+        position: static;
+        display: none;
+        background: rgba(255, 255, 255, 0.9);
+        margin-top: 0.5rem;
+        border-radius: 4px;
+      }
+
+      .contact-btn {
+        order: 2;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .intro {
+        padding: 2rem 1rem;
+      }
+
+      .intro h2 {
+        font-size: 1.5rem;
+      }
+
+      .services-container {
+        padding: 2rem 1rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .cta-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .cta-text {
+        text-align: center;
+        padding-left: 0;
+        margin-top: 1rem;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .cta-text h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- Header -->
   <header class="topbar">
     <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About Us</a></li>
         <li class="dropdown">
-          <li><a href="services.html">Services ▾</a></li>
+          <a href="services.html" class="nav-services">Services ▾</a>
           <ul class="dropdown-content">
-            <li><a href="marketresearch.html">Market Research</a></li>
-  <li><a href="socialmedia.html">Social Media Marketing</a></li>
-  <li><a href="seo.html">SEO Management</a></li>
-  <li><a href="webdesign.html">Web Development</a></li>
-  <li><a href="paidad.html">Paid Advertising</a></li>        
+            <li><a href="marketresearch.html" class="nav-market">Market Research</a></li>
+            <li><a href="socialmedia.html" class="nav-social">Social Media Marketing</a></li>
+            <li><a href="seo.html" class="nav-seo">SEO Management</a></li>
+            <li><a href="webdesign.html" class="nav-web">Web Development</a></li>
+            <li><a href="paidad.html" class="nav-paid">Paid Advertising</a></li>
           </ul>
         </li>
-        <li><a href="#">Contact Us</a></li>
-        <li><button class="lang-btn">🇨🇦 EN ⌃</button></li>
+        <li><a href="#" class="nav-contact">Contact Us</a></li>
+        <li>
+          <button class="lang-btn" onclick="switchLanguage('en')">🇨🇦 EN</button>
+          <button class="lang-btn" onclick="switchLanguage('fr')">🇫🇷 FR</button>
+          <button class="lang-btn" onclick="switchLanguage('es')">🇪🇸 ES</button>
+        </li>
       </ul>
     </nav>
-    <a class="contact-btn" href="#">📞 Contact us today</a>
+    <a class="contact-btn" href="#" id="contact-btn">📞 Contact us today</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Services</h1>
-  </section>
+  <!-- ENGLISH CONTENT -->
+  <div id="content-en" class="lang-content active">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Services</h1>
+    </section>
 
-  <!-- Intro -->
-  <section class="intro">
-    <p>You’ve got a marketing problem?</p>
-    <h2>Let’s help you build your Legatsy through our cutting edge services</h2>
-    <p>Scale Your Business with our Data–Driven Digital Marketing Solutions!</p>
-  </section>
+    <!-- Intro -->
+    <section class="intro">
+      <p>You've got a marketing problem?</p>
+      <h2>Let's help you build your Legatsy through our cutting edge services</h2>
+      <p class="subtitle">Scale Your Business with our Data–Driven Digital Marketing Solutions!</p>
+    </section>
 
-  <!-- Services Grid -->
-  <section class="services-grid">
-    <div class="service-card">
-      <img src="images/service1.jpg" alt="Market Research">
-      <h3>Market Research</h3>
-      <p>Businesses looking to understand their target audience and market trends.</p>
-      <a href="#">Learn more →</a>
-    </div>
+    <!-- Services Grid -->
+    <section class="services-container">
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="images/service1.jpg" alt="Market Research">
+          <div class="service-card-content">
+            <h3>Market Research</h3>
+            <p>Businesses looking to understand their target audience and market trends.</p>
+            <a href="marketresearch.html">Learn more →</a>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <img src="images/service2.jpg" alt="Social Media Marketing">
-      <h3>Social Media Marketing</h3>
-      <p>Brands looking to increase social media presence and engagement.</p>
-      <a href="#">Learn more →</a>
-    </div>
+        <div class="service-card">
+          <img src="images/service2.jpg" alt="Social Media Marketing">
+          <div class="service-card-content">
+            <h3>Social Media Marketing</h3>
+            <p>Brands looking to increase social media presence and engagement.</p>
+            <a href="socialmedia.html">Learn more →</a>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <img src="images/service3.jpg" alt="SEO">
-      <h3>SEO management</h3>
-      <p>Businesses seeking to improve online visibility and search engine rankings.</p>
-      <a href="#">Learn more →</a>
-    </div>
+        <div class="service-card">
+          <img src="images/service3.jpg" alt="SEO">
+          <div class="service-card-content">
+            <h3>SEO Management</h3>
+            <p>Businesses seeking to improve online visibility and search engine rankings.</p>
+            <a href="seo.html">Learn more →</a>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <img src="images/service4.jpg" alt="Paid Ads">
-      <h3>Paid advertising</h3>
-      <p>Brands needing quick, measurable results through digital ads.</p>
-      <a href="#">Learn more →</a>
-    </div>
+        <div class="service-card">
+          <img src="images/service4.jpg" alt="Paid Ads">
+          <div class="service-card-content">
+            <h3>Paid Advertising</h3>
+            <p>Brands needing quick, measurable results through digital ads.</p>
+            <a href="paidad.html">Learn more →</a>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <img src="images/service5.jpg" alt="Web Design">
-      <h3>Web design and maintenance</h3>
-      <p>Businesses wanting a strong online presence.</p>
-      <a href="#">Learn more →</a>
-    </div>
-  </section>
+        <div class="service-card">
+          <img src="images/service5.jpg" alt="Web Design">
+          <div class="service-card-content">
+            <h3>Web Design and Maintenance</h3>
+            <p>Businesses wanting a strong online presence.</p>
+            <a href="webdesign.html">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <img src="images/info-9.jpg" alt="Laptop Woman"/>
-    <div class="cta-text">
-      <h2>Ready to scale your business with us?</h2>
-      <p>Fill our Business Needs Assessment Form below to get started</p>
-      <a href="#" class="btn">Let’s get started</a>
-    </div>
-  </section>
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Laptop Woman"/>
+      <div class="cta-text">
+        <h2>Ready to scale your business with us?</h2>
+        <p>Fill our Business Needs Assessment Form below to get started</p>
+        <a href="#" class="btn">Let's get started</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FRENCH CONTENT -->
+  <div id="content-fr" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Services</h1>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+      <p>Vous avez un problème de marketing?</p>
+      <h2>Laissez-nous vous aider à construire votre Legatsy grâce à nos services de pointe</h2>
+      <p class="subtitle">Développez votre entreprise avec nos solutions de marketing numérique basées sur les données!</p>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-container">
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="images/service1.jpg" alt="Recherche de marché">
+          <div class="service-card-content">
+            <h3>Recherche de Marché</h3>
+            <p>Entreprises cherchant à comprendre leur public cible et les tendances du marché.</p>
+            <a href="marketresearch.html">En savoir plus →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service2.jpg" alt="Marketing des médias sociaux">
+          <div class="service-card-content">
+            <h3>Marketing des Médias Sociaux</h3>
+            <p>Marques cherchant à augmenter leur présence et engagement sur les médias sociaux.</p>
+            <a href="socialmedia.html">En savoir plus →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service3.jpg" alt="SEO">
+          <div class="service-card-content">
+            <h3>Gestion SEO</h3>
+            <p>Entreprises cherchant à améliorer la visibilité en ligne et le classement des moteurs de recherche.</p>
+            <a href="seo.html">En savoir plus →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service4.jpg" alt="Publicité payante">
+          <div class="service-card-content">
+            <h3>Publicité Payante</h3>
+            <p>Marques ayant besoin de résultats rapides et mesurables grâce aux annonces numériques.</p>
+            <a href="paidad.html">En savoir plus →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service5.jpg" alt="Conception web">
+          <div class="service-card-content">
+            <h3>Conception et Maintenance Web</h3>
+            <p>Entreprises voulant une forte présence en ligne.</p>
+            <a href="webdesign.html">En savoir plus →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Femme avec ordinateur portable"/>
+      <div class="cta-text">
+        <h2>Prêt à développer votre entreprise avec nous?</h2>
+        <p>Remplissez notre formulaire d'évaluation des besoins d'entreprise ci-dessous pour commencer</p>
+        <a href="#" class="btn">Commençons</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- SPANISH CONTENT -->
+  <div id="content-es" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Servicios</h1>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+      <p>¿Tienes un problema de marketing?</p>
+      <h2>Déjanos ayudarte a construir tu Legatsy a través de nuestros servicios de vanguardia</h2>
+      <p class="subtitle">¡Escala tu negocio con nuestras soluciones de marketing digital basadas en datos!</p>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-container">
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="images/service1.jpg" alt="Investigación de mercado">
+          <div class="service-card-content">
+            <h3>Investigación de Mercado</h3>
+            <p>Empresas que buscan entender su audiencia objetivo y tendencias del mercado.</p>
+            <a href="marketresearch.html">Saber más →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service2.jpg" alt="Marketing en redes sociales">
+          <div class="service-card-content">
+            <h3>Marketing en Redes Sociales</h3>
+            <p>Marcas que buscan aumentar su presencia y engagement en redes sociales.</p>
+            <a href="socialmedia.html">Saber más →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service3.jpg" alt="SEO">
+          <div class="service-card-content">
+            <h3>Gestión SEO</h3>
+            <p>Empresas que buscan mejorar la visibilidad online y rankings en motores de búsqueda.</p>
+            <a href="seo.html">Saber más →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service4.jpg" alt="Publicidad pagada">
+          <div class="service-card-content">
+            <h3>Publicidad Pagada</h3>
+            <p>Marcas que necesitan resultados rápidos y medibles a través de anuncios digitales.</p>
+            <a href="paidad.html">Saber más →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="images/service5.jpg" alt="Diseño web">
+          <div class="service-card-content">
+            <h3>Diseño y Mantenimiento Web</h3>
+            <p>Empresas que desean una fuerte presencia online.</p>
+            <a href="webdesign.html">Saber más →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Mujer con laptop"/>
+      <div class="cta-text">
+        <h2>¿Listo para escalar tu negocio con nosotros?</h2>
+        <p>Llena nuestro Formulario de Evaluación de Necesidades de Negocio abajo para comenzar</p>
+        <a href="#" class="btn">Empecemos</a>
+      </div>
+    </section>
+  </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div>
         <h3>Legatsy Digital</h3>
-        <p>Legatsy DMA’s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+        <p id="footer-mission">Legatsy DMA's mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 id="footer-quick">Quick Links</h4>
         <ul>
-          <li>Home</li><li>About</li><li>Services</li><li>Contact Us</li>
+          <li><a href="index.html" id="footer-home">Home</a></li>
+          <li><a href="about.html" id="footer-about">About</a></li>
+          <li><a href="services.html" id="footer-services">Services</a></li>
+          <li><a href="#" id="footer-contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Service Overview</h4>
+        <h4 id="footer-service-overview">Service Overview</h4>
         <ul>
-          <li>Market Research</li><li>Paid advertising</li><li>SEO management</li><li>Social Media Marketing</li><li>Web design and maintenance</li>
+          <li><a href="marketresearch.html" id="footer-market">Market Research</a></li>
+          <li><a href="paidad.html" id="footer-paid">Paid Advertising</a></li>
+          <li><a href="seo.html" id="footer-seo">SEO Management</a></li>
+          <li><a href="socialmedia.html" id="footer-social">Social Media Marketing</a></li>
+          <li><a href="webdesign.html" id="footer-web">Web Design and Maintenance</a></li>
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h4 id="footer-legal">Legal</h4>
         <ul>
-          <li>Privacy Policy</li><li>Terms of Service</li>
+          <li><a href="#" id="footer-privacy">Privacy Policy</a></li>
+          <li><a href="#" id="footer-terms">Terms of Service</a></li>
         </ul>
       </div>
     </div>
-    <p style="margin-top: 2rem;">© 2025 • Legatsy Digital Marketing Agency • All Rights Reserved</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Legatsy Digital Marketing Agency. All Rights Reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Language switching function
+    function switchLanguage(lang) {
+      // Hide all content
+      document.querySelectorAll('.lang-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update navigation and footer text
+      updateNavigationText(lang);
+      updateFooterText(lang);
+      
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Update page language attribute
+      document.documentElement.lang = lang;
+    }
+
+    function updateNavigationText(lang) {
+      const navTexts = {
+        en: {
+          home: 'Home',
+          about: 'About Us',
+          services: 'Services ▾',
+          market: 'Market Research',
+          social: 'Social Media Marketing',
+          seo: 'SEO Management',
+          web: 'Web Development',
+          paid: 'Paid Advertising',
+          contact: 'Contact Us',
+          contactBtn: '📞 Contact us today'
+        },
+        fr: {
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services ▾',
+          market: 'Recherche de marché',
+          social: 'Marketing des médias sociaux',
+          seo: 'Gestion SEO',
+          web: 'Développement web',
+          paid: 'Publicité payante',
+          contact: 'Contactez-nous',
+          contactBtn: '📞 Contactez-nous aujourd\'hui'
+        },
+        es: {
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios ▾',
+          market: 'Investigación de mercado',
+          social: 'Marketing en redes sociales',
+          seo: 'Gestión SEO',
+          web: 'Desarrollo web',
+          paid: 'Publicidad pagada',
+          contact: 'Contáctanos',
+          serviceOverview: 'Resumen de servicios',
+          market: 'Investigación de mercado',
+          paid: 'Publicidad pagada',
+          seo: 'Gestión SEO',
+          social: 'Marketing en redes sociales',
+          web: 'Diseño y mantenimiento web',
+          legal: 'Legal',
+          privacy: 'Política de privacidad',
+          terms: 'Términos de servicio'
+        }
+      };
+
+      const texts = footerTexts[lang];
+      document.getElementById('footer-mission').textContent = texts.mission;
+      document.getElementById('footer-quick').textContent = texts.quick;
+      document.getElementById('footer-home').textContent = texts.home;
+      document.getElementById('footer-about').textContent = texts.about;
+      document.getElementById('footer-services').textContent = texts.services;
+      document.getElementById('footer-contact').textContent = texts.contact;
+      document.getElementById('footer-service-overview').textContent = texts.serviceOverview;
+      document.getElementById('footer-market').textContent = texts.market;
+      document.getElementById('footer-paid').textContent = texts.paid;
+      document.getElementById('footer-seo').textContent = texts.seo;
+      document.getElementById('footer-social').textContent = texts.social;
+      document.getElementById('footer-web').textContent = texts.web;
+      document.getElementById('footer-legal').textContent = texts.legal;
+      document.getElementById('footer-privacy').textContent = texts.privacy;
+      document.getElementById('footer-terms').textContent = texts.terms;
+    }
+
+    // Auto-detect browser language on page load
+    window.addEventListener('load', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      const browserLanguage = navigator.language.substring(0, 2);
+      
+      let defaultLanguage = 'en';
+      
+      if (savedLanguage && ['en', 'fr', 'es'].includes(savedLanguage)) {
+        defaultLanguage = savedLanguage;
+      } else if (['fr', 'es'].includes(browserLanguage)) {
+        defaultLanguage = browserLanguage;
+      }
+      
+      if (defaultLanguage !== 'en') {
+        switchLanguage(defaultLanguage);
+      }
+    });
+  </script>
 </body>
 </html>

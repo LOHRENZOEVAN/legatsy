@@ -5,240 +5,815 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | Legatsy Digital</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #fff; color: #222; }
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    header {
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    .topbar {
       background-color: #fca311;
-      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
       flex-wrap: wrap;
-    }
-    .logo { font-weight: bold; font-size: 1.2rem; color: #fff; }
-    nav ul {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
+      position: relative;
     }
 
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #222;
+    }
+
+    .nav-links .dropdown-content a:hover {
+      background-color: #f5f5f5;
+    }
+
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .contact-btn {
+      background: #f77f00;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-btn:hover {
+      background: #e6720a;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.3rem 0.6rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(45deg, #fca311 50%, #000 50%);
       color: white;
-      padding: 5rem 1.5rem;
+      padding: 5rem 2rem;
       text-align: center;
     }
+
     .hero h1 {
       font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
+    /* About Section */
     .section {
-      padding: 3rem 1.5rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .about-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 3rem;
       align-items: center;
     }
+
     .about-row img {
       max-width: 100%;
       width: 400px;
       border-radius: 8px;
-    }
-    .about-text {
-      flex: 1 1 300px;
+      flex-shrink: 0;
     }
 
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .about-text strong {
+      color: #f77f00;
+    }
+
+    /* Testimonial Section */
     .testimonial-section {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      padding: 3rem 1.5rem;
+      padding: 4rem 2rem;
       background: #fdf0d3;
       align-items: center;
       justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .testimonial {
-      flex: 1 1 300px;
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .testimonial p {
       font-size: 1.1rem;
       margin: 1rem 0;
       font-style: italic;
     }
+
     .testimonial img {
       border-radius: 50%;
       width: 50px;
+      margin-right: 1rem;
     }
 
     .testimonial-right {
-      flex: 1 1 300px;
-      background-image: url('images/happy-client.jpg');
+      flex: 1;
+      min-width: 300px;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/happy-client.jpg');
       background-size: cover;
       background-position: center;
       padding: 3rem;
       color: white;
       text-align: left;
+      border-radius: 10px;
+    }
+
+    .testimonial-right h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
     }
 
     .btn {
       display: inline-block;
       margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       background: #f77f00;
       color: #fff;
       border-radius: 25px;
       font-weight: bold;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
+    .btn:hover {
+      background: #e6720a;
+    }
+
+    .btn-white {
+      background: white;
+      color: #000;
+    }
+
+    .btn-white:hover {
+      background: #f0f0f0;
+    }
+
+    /* CTA Section */
     .cta-section {
       background: linear-gradient(to right, white, #d08a00);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 2rem 1.5rem;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .cta-section img {
-      max-width: 300px;
+      max-width: 400px;
+      width: 100%;
       border-radius: 10px;
-      margin-right: 1.5rem;
+      flex-shrink: 0;
     }
 
     .cta-text {
+      flex: 1;
+      min-width: 300px;
       color: white;
+      text-align: right;
+      padding-left: 2rem;
     }
 
+    .cta-text h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .cta-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
     footer {
       background: #3d2b1f;
-      color: white;
-      padding: 2rem 1.5rem;
+      color: #fff;
+      padding: 2rem;
     }
+
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .footer-grid div {
-      flex: 1 1 200px;
+      flex: 1;
+      min-width: 180px;
     }
-    h3, h4 {
+
+    .footer-grid h4,
+    .footer-grid h3 {
       color: #fca311;
+      margin-bottom: 1rem;
+    }
+
+    .footer-grid ul li {
       margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .about-row { flex-direction: column; text-align: center; }
-      .testimonial-section { flex-direction: column; }
-      .cta-section { flex-direction: column; text-align: center; }
-      .cta-section img { margin: 0 0 1rem 0; }
+    .footer-grid a:hover {
+      color: #fca311;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+
+    /* Language content visibility */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .logo {
+        order: 1;
+        text-align: center;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      .nav-links .dropdown-content {
+        position: static;
+        display: none;
+        background: rgba(255, 255, 255, 0.9);
+        margin-top: 0.5rem;
+        border-radius: 4px;
+      }
+
+      .contact-btn {
+        order: 2;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .about-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .testimonial-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+
+      .testimonial-right {
+        text-align: center;
+      }
+
+      .cta-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .cta-text {
+        text-align: center;
+        padding-left: 0;
+        margin-top: 1rem;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .testimonial-right h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-text h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
-<body>
 
- <!-- Header -->
+<body>
+  <!-- Header -->
   <header class="topbar">
     <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About Us</a></li>
         <li class="dropdown">
-          <li><a href="services.html">Services ▾</a></li>
+          <a href="services.html" class="nav-services">Services ▾</a>
           <ul class="dropdown-content">
-            <li><a href="marketresearch.html">Market Research</a></li>
-  <li><a href="socialmedia.html">Social Media Marketing</a></li>
-  <li><a href="seo.html">SEO Management</a></li>
-  <li><a href="webdesign.html">Web Development</a></li>
-  <li><a href="paidad.html">Paid Advertising</a></li>
-            
+            <li><a href="marketresearch.html" class="nav-market">Market Research</a></li>
+            <li><a href="socialmedia.html" class="nav-social">Social Media Marketing</a></li>
+            <li><a href="seo.html" class="nav-seo">SEO Management</a></li>
+            <li><a href="webdesign.html" class="nav-web">Web Development</a></li>
+            <li><a href="paidad.html" class="nav-paid">Paid Advertising</a></li>
           </ul>
         </li>
-        <li><a href="#">Contact Us</a></li>
-        <li><button class="lang-btn">🇨🇦 EN ⌃</button></li>
+        <li><a href="#" class="nav-contact">Contact Us</a></li>
+        <li>
+          <button class="lang-btn" onclick="switchLanguage('en')">🇨🇦 EN</button>
+          <button class="lang-btn" onclick="switchLanguage('fr')">🇫🇷 FR</button>
+          <button class="lang-btn" onclick="switchLanguage('es')">🇪🇸 ES</button>
+        </li>
       </ul>
     </nav>
-    <a class="contact-btn" href="#">📞 Contact us today</a>
+    <a class="contact-btn" href="#" id="contact-btn">📞 Contact us today</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>About Us</h1>
-  </section>
+  <!-- ENGLISH CONTENT -->
+  <div id="content-en" class="lang-content active">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>About Us</h1>
+    </section>
 
-  <!-- About Content -->
-  <section class="section about-row">
-    <img src="images/team.png" alt="Team discussion"/>
-    <div class="about-text">
-      <p>Out of Fule’s frustration of juggling with prospecting, closing deals, managing existing clients, monitoring market trends and attending corporate meetings as a financial security advisor, her desire to master the marketing game grew by the day.</p>
-      <p>Fule has trained hundreds of agricultural entrepreneurs in the past. And she is very passionate about supporting small and medium business owners to start and scale their businesses through her marketing services.</p>
-      <p><strong>Founded in March 2024</strong>, <strong>Legatsy Digital Marketing Agency (LDMA)</strong> is a brand name under 9512–0606 Québec inc., a company that was registered under the Québec Company Act.</p>
-      <p><strong>Legatsy DMA’s mission</strong> is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
-    </div>
-  </section>
+    <!-- About Content -->
+    <section class="section about-row">
+      <img src="images/team.png" alt="Team discussion"/>
+      <div class="about-text">
+        <p>Out of Fule's frustration of juggling with prospecting, closing deals, managing existing clients, monitoring market trends and attending corporate meetings as a financial security advisor, her desire to master the marketing game grew by the day.</p>
+        <p>Fule has trained hundreds of agricultural entrepreneurs in the past. And she is very passionate about supporting small and medium business owners to start and scale their businesses through her marketing services.</p>
+        <p><strong>Founded in March 2024</strong>, <strong>Legatsy Digital Marketing Agency (LDMA)</strong> is a brand name under 9512–0606 Québec inc., a company that was registered under the Québec Company Act.</p>
+        <p><strong>Legatsy DMA's mission</strong> is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+      </div>
+    </section>
 
-  <!-- Testimonial -->
-  <section class="testimonial-section">
-    <div class="testimonial">
-      <span>⭐⭐⭐⭐⭐</span>
-      <p>"In just 2 weeks of working with Fule, we began to perceive significant improvement. I appreciate her professionalism the most"</p>
-      <p><strong>Dr. Harris Nicole</strong><br/><span style="font-size: 0.9rem;">Just Like Family Home Care</span></p>
-    </div>
-    <div class="testimonial-right">
-      <h2>We generate results for our customers</h2>
-      <a href="#" class="btn" style="background: white; color: #000;">Get started today</a>
-    </div>
-  </section>
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+      <div class="testimonial">
+        <span>⭐⭐⭐⭐⭐</span>
+        <p>"In just 2 weeks of working with Fule, we began to perceive significant improvement. I appreciate her professionalism the most"</p>
+        <p><strong>Dr. Harris Nicole</strong><br/><span style="font-size: 0.9rem;">Just Like Family Home Care</span></p>
+      </div>
+      <div class="testimonial-right">
+        <h2>We generate results for our customers</h2>
+        <a href="#" class="btn btn-white">Get started today</a>
+      </div>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <img src="images/info-9.jpg" alt="Laptop Woman"/>
-    <div class="cta-text">
-      <h2>Ready to scale your business</h2>
-      <p>Fill our Business Needs Assessment Form below to get started</p>
-      <a href="#" class="btn">Let’s get started</a>
-    </div>
-  </section>
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Laptop Woman"/>
+      <div class="cta-text">
+        <h2>Ready to scale your business</h2>
+        <p>Fill our Business Needs Assessment Form below to get started</p>
+        <a href="#" class="btn">Let's get started</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FRENCH CONTENT -->
+  <div id="content-fr" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>À propos de nous</h1>
+    </section>
+
+    <!-- About Content -->
+    <section class="section about-row">
+      <img src="images/team.png" alt="Discussion d'équipe"/>
+      <div class="about-text">
+        <p>Suite à la frustration de Fule de jongler entre la prospection, la conclusion d'affaires, la gestion des clients existants, le suivi des tendances du marché et la participation aux réunions d'entreprise en tant que conseillère en sécurité financière, son désir de maîtriser le jeu du marketing s'est accru de jour en jour.</p>
+        <p>Fule a formé des centaines d'entrepreneurs agricoles dans le passé. Et elle est très passionnée par le soutien aux propriétaires de petites et moyennes entreprises pour démarrer et développer leurs entreprises grâce à ses services de marketing.</p>
+        <p><strong>Fondée en mars 2024</strong>, <strong>Legatsy Digital Marketing Agency (LDMA)</strong> est une marque sous 9512–0606 Québec inc., une société qui a été enregistrée sous la Loi des compagnies du Québec.</p>
+        <p><strong>La mission de Legatsy DMA</strong> est de partager le fardeau des propriétaires de petites entreprises en les aidant à trouver et gérer efficacement leurs clients, afin qu'ils aient le temps de servir leurs clients avec amour et attention.</p>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+      <div class="testimonial">
+        <span>⭐⭐⭐⭐⭐</span>
+        <p>"En seulement 2 semaines de travail avec Fule, nous avons commencé à percevoir une amélioration significative. J'apprécie surtout son professionnalisme"</p>
+        <p><strong>Dr. Harris Nicole</strong><br/><span style="font-size: 0.9rem;">Just Like Family Home Care</span></p>
+      </div>
+      <div class="testimonial-right">
+        <h2>Nous générons des résultats pour nos clients</h2>
+        <a href="#" class="btn btn-white">Commencer aujourd'hui</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Femme avec ordinateur portable"/>
+      <div class="cta-text">
+        <h2>Prêt à développer votre entreprise</h2>
+        <p>Remplissez notre formulaire d'évaluation des besoins d'entreprise ci-dessous pour commencer</p>
+        <a href="#" class="btn">Commençons</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- SPANISH CONTENT -->
+  <div id="content-es" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Acerca de nosotros</h1>
+    </section>
+
+    <!-- About Content -->
+    <section class="section about-row">
+      <img src="images/team.png" alt="Discusión de equipo"/>
+      <div class="about-text">
+        <p>Por la frustración de Fule de hacer malabares con la prospección, cerrar tratos, gestionar clientes existentes, monitorear tendencias del mercado y asistir a reuniones corporativas como asesora de seguridad financiera, su deseo de dominar el juego del marketing creció día a día.</p>
+        <p>Fule ha entrenado a cientos de emprendedores agrícolas en el pasado. Y está muy apasionada por apoyar a propietarios de pequeñas y medianas empresas para iniciar y escalar sus negocios a través de sus servicios de marketing.</p>
+        <p><strong>Fundada en marzo 2024</strong>, <strong>Legatsy Digital Marketing Agency (LDMA)</strong> es una marca bajo 9512–0606 Québec inc., una empresa que fue registrada bajo la Ley de Compañías de Québec.</p>
+        <p><strong>La misión de Legatsy DMA</strong> es compartir la carga de los propietarios de pequeñas empresas apoyándolos para encontrar y gestionar clientes de manera efectiva, para que tengan tiempo de servir a sus clientes con amor y atención.</p>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+      <div class="testimonial">
+        <span>⭐⭐⭐⭐⭐</span>
+        <p>"En solo 2 semanas de trabajar con Fule, comenzamos a percibir una mejora significativa. Lo que más aprecio es su profesionalismo"</p>
+        <p><strong>Dr. Harris Nicole</strong><br/><span style="font-size: 0.9rem;">Just Like Family Home Care</span></p>
+      </div>
+      <div class="testimonial-right">
+        <h2>Generamos resultados para nuestros clientes</h2>
+        <a href="#" class="btn btn-white">Empezar hoy</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Mujer con laptop"/>
+      <div class="cta-text">
+        <h2>Listo para escalar tu negocio</h2>
+        <p>Llena nuestro Formulario de Evaluación de Necesidades de Negocio abajo para comenzar</p>
+        <a href="#" class="btn">Empecemos</a>
+      </div>
+    </section>
+  </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div>
         <h3>Legatsy Digital</h3>
-        <p>Legatsy DMA’s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+        <p id="footer-mission">Legatsy DMA's mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 id="footer-quick">Quick Links</h4>
         <ul>
-          <li>Home</li><li>About</li><li>Services</li><li>Contact Us</li>
+          <li><a href="index.html" id="footer-home">Home</a></li>
+          <li><a href="about.html" id="footer-about">About</a></li>
+          <li><a href="services.html" id="footer-services">Services</a></li>
+          <li><a href="#" id="footer-contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Service Overview</h4>
+        <h4 id="footer-service-overview">Service Overview</h4>
         <ul>
-          <li>Market Research</li><li>Paid advertising</li><li>SEO management</li><li>Social Media Marketing</li><li>Web design and maintenance</li>
+          <li><a href="marketresearch.html" id="footer-market">Market Research</a></li>
+          <li><a href="paidad.html" id="footer-paid">Paid Advertising</a></li>
+          <li><a href="seo.html" id="footer-seo">SEO Management</a></li>
+          <li><a href="socialmedia.html" id="footer-social">Social Media Marketing</a></li>
+          <li><a href="webdesign.html" id="footer-web">Web Design and Maintenance</a></li>
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h4 id="footer-legal">Legal</h4>
         <ul>
-          <li>Privacy Policy</li><li>Terms of Service</li>
+          <li><a href="#" id="footer-privacy">Privacy Policy</a></li>
+          <li><a href="#" id="footer-terms">Terms of Service</a></li>
         </ul>
       </div>
     </div>
-    <p style="margin-top: 2rem;">© 2025 • Legatsy Digital Marketing Agency • All Rights Reserved</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Legatsy Digital Marketing Agency. All Rights Reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Language switching function
+    function switchLanguage(lang) {
+      // Hide all content
+      document.querySelectorAll('.lang-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update navigation and footer text
+      updateNavigationText(lang);
+      updateFooterText(lang);
+      
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Update page language attribute
+      document.documentElement.lang = lang;
+    }
+
+    function updateNavigationText(lang) {
+      const navTexts = {
+        en: {
+          home: 'Home',
+          about: 'About Us',
+          services: 'Services ▾',
+          market: 'Market Research',
+          social: 'Social Media Marketing',
+          seo: 'SEO Management',
+          web: 'Web Development',
+          paid: 'Paid Advertising',
+          contact: 'Contact Us',
+          contactBtn: '📞 Contact us today'
+        },
+        fr: {
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services ▾',
+          market: 'Recherche de marché',
+          social: 'Marketing des médias sociaux',
+          seo: 'Gestion SEO',
+          web: 'Développement web',
+          paid: 'Publicité payante',
+          contact: 'Contactez-nous',
+          contactBtn: '📞 Contactez-nous aujourd\'hui'
+        },
+        es: {
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios ▾',
+          market: 'Investigación de mercado',
+          social: 'Marketing en redes sociales',
+          seo: 'Gestión SEO',
+          web: 'Desarrollo web',
+          paid: 'Publicidad pagada',
+          contact: 'Contáctanos',
+          contactBtn: '📞 Contáctanos hoy'
+        }
+      };
+
+      const texts = navTexts[lang];
+      document.querySelector('.nav-home').textContent = texts.home;
+      document.querySelector('.nav-about').textContent = texts.about;
+      document.querySelector('.nav-services').textContent = texts.services;
+      document.querySelector('.nav-market').textContent = texts.market;
+      document.querySelector('.nav-social').textContent = texts.social;
+      document.querySelector('.nav-seo').textContent = texts.seo;
+      document.querySelector('.nav-web').textContent = texts.web;
+      document.querySelector('.nav-paid').textContent = texts.paid;
+      document.querySelector('.nav-contact').textContent = texts.contact;
+      document.getElementById('contact-btn').textContent = texts.contactBtn;
+    }
+
+    function updateFooterText(lang) {
+      const footerTexts = {
+        en: {
+          mission: 'Legatsy DMA\'s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.',
+          quick: 'Quick Links',
+          home: 'Home',
+          about: 'About',
+          services: 'Services',
+          contact: 'Contact Us',
+          serviceOverview: 'Service Overview',
+          market: 'Market Research',
+          paid: 'Paid Advertising',
+          seo: 'SEO Management',
+          social: 'Social Media Marketing',
+          web: 'Web Design and Maintenance',
+          legal: 'Legal',
+          privacy: 'Privacy Policy',
+          terms: 'Terms of Service'
+        },
+        fr: {
+          mission: 'La mission de Legatsy DMA est de partager le fardeau des propriétaires de petites entreprises en les aidant à trouver et gérer efficacement leurs clients, afin qu\'ils aient le temps de servir leurs clients avec amour et attention.',
+          quick: 'Liens rapides',
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services',
+          contact: 'Contactez-nous',
+          serviceOverview: 'Aperçu des services',
+          market: 'Recherche de marché',
+          paid: 'Publicité payante',
+          seo: 'Gestion SEO',
+          social: 'Marketing des médias sociaux',
+          web: 'Conception et maintenance web',
+          legal: 'Légal',
+          privacy: 'Politique de confidentialité',
+          terms: 'Conditions de service'
+        },
+        es: {
+          mission: 'La misión de Legatsy DMA es compartir la carga de los propietarios de pequeñas empresas apoyándolos para encontrar y gestionar clientes de manera efectiva, para que tengan tiempo de servir a sus clientes con amor y atención.',
+          quick: 'Enlaces rápidos',
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios',
+          contact: 'Contáctanos',
+          serviceOverview: 'Resumen de servicios',
+          market: 'Investigación de mercado',
+          paid: 'Publicidad pagada',
+          seo: 'Gestión SEO',
+          social: 'Marketing en redes sociales',
+          web: 'Diseño y mantenimiento web',
+          legal: 'Legal',
+          privacy: 'Política de privacidad',
+          terms: 'Términos de servicio'
+        }
+      };
+
+      const texts = footerTexts[lang];
+      document.getElementById('footer-mission').textContent = texts.mission;
+      document.getElementById('footer-quick').textContent = texts.quick;
+      document.getElementById('footer-home').textContent = texts.home;
+      document.getElementById('footer-about').textContent = texts.about;
+      document.getElementById('footer-services').textContent = texts.services;
+      document.getElementById('footer-contact').textContent = texts.contact;
+      document.getElementById('footer-service-overview').textContent = texts.serviceOverview;
+      document.getElementById('footer-market').textContent = texts.market;
+      document.getElementById('footer-paid').textContent = texts.paid;
+      document.getElementById('footer-seo').textContent = texts.seo;
+      document.getElementById('footer-social').textContent = texts.social;
+      document.getElementById('footer-web').textContent = texts.web;
+      document.getElementById('footer-legal').textContent = texts.legal;
+      document.getElementById('footer-privacy').textContent = texts.privacy;
+      document.getElementById('footer-terms').textContent = texts.terms;
+    }
+
+    // Auto-detect browser language on page load
+    window.addEventListener('load', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      const browserLanguage = navigator.language.substring(0, 2);
+      
+      let defaultLanguage = 'en';
+      
+      if (savedLanguage && ['en', 'fr', 'es'].includes(savedLanguage)) {
+        defaultLanguage = savedLanguage;
+      } else if (['fr', 'es'].includes(browserLanguage)) {
+        defaultLanguage = browserLanguage;
+      }
+      
+      if (defaultLanguage !== 'en') {
+        switchLanguage(defaultLanguage);
+      }
+    });
+  </script>
 </body>
 </html>
