@@ -5,198 +5,801 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Paid Advertising | Legatsy Digital</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; background: #fff; }
-    header {
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    .topbar {
       background-color: #fca311;
-      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
       flex-wrap: wrap;
+      position: relative;
     }
-    .logo { font-weight: bold; font-size: 1.2rem; color: #fff; }
-    nav ul {
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      flex: 1;
       display: flex;
-      gap: 1rem;
-      list-style: none;
-      flex-wrap: wrap;
+      justify-content: center;
     }
-    nav a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #222;
+    }
+
+    .nav-links .dropdown-content a:hover {
+      background-color: #f5f5f5;
+    }
+
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .contact-btn {
+      background: #f77f00;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-btn:hover {
+      background: #e6720a;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.3rem 0.6rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(45deg, #fca311 50%, #000 50%);
       color: white;
-      padding: 5rem 1.5rem;
+      padding: 5rem 2rem;
       text-align: center;
     }
+
     .hero h1 {
       font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
+
+    /* Main Content Section */
     .section {
-      padding: 3rem 1.5rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .two-col {
       display: flex;
-      gap: 2rem;
       flex-wrap: wrap;
+      gap: 3rem;
+      align-items: flex-start;
     }
+
     .col {
-      flex: 1 1 300px;
+      flex: 1;
+      min-width: 300px;
     }
+
+    .col h2 {
+      color: #fca311;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .col p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .checklist {
       margin-top: 1rem;
     }
+
     .checklist div {
       background: #fdf1da;
       margin: 0.5rem 0;
       padding: 1rem;
       border-left: 5px solid #fca311;
+      border-radius: 4px;
+      font-size: 1rem;
     }
+
+    /* Pricing Section */
+    .pricing-section {
+      background: #fdf0d3;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-section h2 {
+      color: #fca311;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
     .price-list {
-      margin-top: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
+
     .price-list li {
-      margin-bottom: 0.5rem;
+      background: white;
+      margin: 1rem 0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
     }
+
+    .price-list strong {
+      color: #f77f00;
+    }
+
     .btn {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
+      margin-top: 2rem;
+      padding: 0.8rem 1.6rem;
       background: #f77f00;
       color: #fff;
       border-radius: 25px;
       font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
-    .order-section {
+
+    .btn:hover {
+      background: #e6720a;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* CTA Section */
+    .cta-section {
       background: linear-gradient(to right, white, #d08a00);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 2rem 1.5rem;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .order-section img {
-      max-width: 300px;
+
+    .cta-section img {
+      max-width: 400px;
+      width: 100%;
       border-radius: 10px;
-      margin-right: 1.5rem;
+      flex-shrink: 0;
     }
-    .order-text {
+
+    .cta-text {
+      flex: 1;
+      min-width: 300px;
       color: white;
+      text-align: right;
+      padding-left: 2rem;
     }
+
+    .cta-text h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .cta-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
     footer {
       background: #3d2b1f;
-      color: white;
-      padding: 2rem 1.5rem;
+      color: #fff;
+      padding: 2rem;
     }
+
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .footer-grid div {
-      flex: 1 1 200px;
+      flex: 1;
+      min-width: 180px;
     }
-    h3, h4 {
+
+    .footer-grid h4,
+    .footer-grid h3 {
       color: #fca311;
+      margin-bottom: 1rem;
+    }
+
+    .footer-grid ul li {
       margin-bottom: 0.5rem;
     }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .two-col { flex-direction: column; }
-      .order-section { flex-direction: column; text-align: center; }
-      .order-section img { margin: 0 0 1rem 0; }
+
+    .footer-grid a:hover {
+      color: #fca311;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+
+    /* Language content visibility */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .logo {
+        order: 1;
+        text-align: center;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      .nav-links .dropdown-content {
+        position: static;
+        display: none;
+        background: rgba(255, 255, 255, 0.9);
+        margin-top: 0.5rem;
+        border-radius: 4px;
+      }
+
+      .contact-btn {
+        order: 2;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .two-col {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .cta-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .cta-text {
+        text-align: center;
+        padding-left: 0;
+        margin-top: 1rem;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section, .pricing-section {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .cta-text h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- Header -->
-  <header>
-    <div class="logo">LEGATSY DIGITAL</div>
+  <header class="topbar">
+    <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
     <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services ⌄</a></li>
-        <li><a href="#">Contact us today</a></li>
-        <li><a href="#">🇨🇦 EN ⌃</a></li>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About Us</a></li>
+        <li class="dropdown">
+          <a href="services.html" class="nav-services">Services ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="marketresearch.html" class="nav-market">Market Research</a></li>
+            <li><a href="socialmedia.html" class="nav-social">Social Media Marketing</a></li>
+            <li><a href="seo.html" class="nav-seo">SEO Management</a></li>
+            <li><a href="webdesign.html" class="nav-web">Web Development</a></li>
+            <li><a href="paidad.html" class="nav-paid">Paid Advertising</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="nav-contact">Contact Us</a></li>
+        <li>
+          <button class="lang-btn" onclick="switchLanguage('en')">🇨🇦 EN</button>
+          <button class="lang-btn" onclick="switchLanguage('fr')">🇫🇷 FR</button>
+          <button class="lang-btn" onclick="switchLanguage('es')">🇪🇸 ES</button>
+        </li>
       </ul>
     </nav>
+    <a class="contact-btn" href="#" id="contact-btn">📞 Contact us today</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Paid advertising</h1>
-  </section>
+  <!-- ENGLISH CONTENT -->
+  <div id="content-en" class="lang-content active">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Paid Advertising</h1>
+    </section>
 
-  <!-- Who It Is For / Approach -->
-  <section class="section two-col">
-    <div class="col">
-      <h2>Who It Is For</h2>
-      <div class="checklist">
-        <div>✔ Brands needing quick, measurable results through digital ads.</div>
-        <div>✔ Businesses with limited time and budget to capture leads.</div>
-        <div>✔ Companies launching new products or services and seeking immediate visibility.</div>
+    <!-- Who It Is For / Our Approach -->
+    <section class="section two-col">
+      <div class="col">
+        <h2>Who It Is For</h2>
+        <div class="checklist">
+          <div>✔ Brands needing quick, measurable results through digital ads.</div>
+          <div>✔ Businesses with limited time and budget to capture leads.</div>
+          <div>✔ Companies launching new products or services and seeking immediate visibility.</div>
+        </div>
       </div>
-    </div>
-    <div class="col">
-      <h2>Our Unique Approach</h2>
-      <p>We develop campaigns across platforms like Google, Facebook, and LinkedIn, ensuring optimal ad placement and audience targeting. Our campaigns are designed to maximize ROI with data-backed insights.</p>
-    </div>
-  </section>
+      <div class="col">
+        <h2>Our Unique Approach</h2>
+        <p>We develop campaigns across platforms like Google, Facebook, and LinkedIn, ensuring optimal ad placement and audience targeting. Our campaigns are designed to maximize ROI with data-backed insights.</p>
+      </div>
+    </section>
 
-  <!-- Pricing -->
-  <section class="section">
-    <h2>Our Prices</h2>
-    <ul class="price-list">
-      <li><strong>Starter Plan:</strong> $500/month – Google or Facebook ads setup and management.</li>
-      <li><strong>Growth Plan:</strong> $900/month – Multi-platform campaigns with tracking.</li>
-      <li><strong>Premium Plan:</strong> $1,500/month – Comprehensive ad management with retargeting.</li>
-    </ul>
-    <a href="#" class="btn">Order Now</a>
-  </section>
+    <!-- Pricing -->
+    <section class="pricing-section">
+      <h2>Our Prices</h2>
+      <ul class="price-list">
+        <li><strong>Starter Plan:</strong> $500/month – Google or Facebook ads setup and management.</li>
+        <li><strong>Growth Plan:</strong> $900/month – Multi-platform campaigns with tracking.</li>
+        <li><strong>Premium Plan:</strong> $1,500/month – Comprehensive ad management with retargeting.</li>
+      </ul>
+      <div class="text-center">
+        <a href="https://www.paypal.com/paypalme/FChiBemieh?country.x=CA&locale.x=en_US" class="btn">Order Now</a>
+      </div>
+    </section>
 
-  <!-- Final CTA -->
-  <section class="order-section">
-    <img src="images/info-9.jpg" alt="Woman on laptop">
-    <div class="order-text">
-      <h2>Ready to scale your business with us?</h2>
-      <p>Fill our Business Needs Assessment Form below to get started</p>
-      <a href="#" class="btn">Let’s get started</a>
-    </div>
-  </section>
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Woman on laptop"/>
+      <div class="cta-text">
+        <h2>Ready to scale your business with us?</h2>
+        <p>Fill our Business Needs Assessment Form below to get started</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn">Let's get started</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FRENCH CONTENT -->
+  <div id="content-fr" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Publicité Payante</h1>
+    </section>
+
+    <!-- Who It Is For / Our Approach -->
+    <section class="section two-col">
+      <div class="col">
+        <h2>À Qui Cela S'Adresse</h2>
+        <div class="checklist">
+          <div>✔ Marques ayant besoin de résultats rapides et mesurables grâce aux publicités numériques.</div>
+          <div>✔ Entreprises avec un temps et un budget limités pour capturer des prospects.</div>
+          <div>✔ Entreprises lançant de nouveaux produits ou services et recherchant une visibilité immédiate.</div>
+        </div>
+      </div>
+      <div class="col">
+        <h2>Notre Approche Unique</h2>
+        <p>Nous développons des campagnes sur des plateformes comme Google, Facebook et LinkedIn, assurant un placement publicitaire optimal et un ciblage d'audience précis. Nos campagnes sont conçues pour maximiser le ROI avec des informations basées sur les données.</p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+      <h2>Nos Tarifs</h2>
+      <ul class="price-list">
+        <li><strong>Plan Débutant:</strong> 500$/mois – Configuration et gestion des publicités Google ou Facebook.</li>
+        <li><strong>Plan Croissance:</strong> 900$/mois – Campagnes multi-plateformes avec suivi.</li>
+        <li><strong>Plan Premium:</strong> 1 500$/mois – Gestion complète des publicités avec reciblage.</li>
+      </ul>
+      <div class="text-center">
+        <a href="https://www.paypal.com/paypalme/FChiBemieh?country.x=CA&locale.x=en_US" class="btn">Commander Maintenant</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Femme avec ordinateur portable"/>
+      <div class="cta-text">
+        <h2>Prêt à développer votre entreprise avec nous?</h2>
+        <p>Remplissez notre formulaire d'évaluation des besoins d'entreprise ci-dessous pour commencer</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn">Commençons</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- SPANISH CONTENT -->
+  <div id="content-es" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Publicidad Pagada</h1>
+    </section>
+
+    <!-- Who It Is For / Our Approach -->
+    <section class="section two-col">
+      <div class="col">
+        <h2>Para Quién Es</h2>
+        <div class="checklist">
+          <div>✔ Marcas que necesitan resultados rápidos y medibles a través de anuncios digitales.</div>
+          <div>✔ Empresas con tiempo y presupuesto limitados para capturar leads.</div>
+          <div>✔ Empresas lanzando nuevos productos o servicios y buscando visibilidad inmediata.</div>
+        </div>
+      </div>
+      <div class="col">
+        <h2>Nuestro Enfoque Único</h2>
+        <p>Desarrollamos campañas en plataformas como Google, Facebook y LinkedIn, asegurando una colocación óptima de anuncios y segmentación de audiencia. Nuestras campañas están diseñadas para maximizar el ROI con insights respaldados por datos.</p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+      <h2>Nuestros Precios</h2>
+      <ul class="price-list">
+        <li><strong>Plan Inicial:</strong> $500/mes – Configuración y gestión de anuncios de Google o Facebook.</li>
+        <li><strong>Plan Crecimiento:</strong> $900/mes – Campañas multi-plataforma con seguimiento.</li>
+        <li><strong>Plan Premium:</strong> $1,500/mes – Gestión integral de anuncios con retargeting.</li>
+      </ul>
+      <div class="text-center">
+        <a href="https://www.paypal.com/paypalme/FChiBemieh?country.x=CA&locale.x=en_US" class="btn">Ordenar Ahora</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <img src="images/info-9.jpg" alt="Mujer con laptop"/>
+      <div class="cta-text">
+        <h2>¿Listo para escalar tu negocio con nosotros?</h2>
+        <p>Llena nuestro Formulario de Evaluación de Necesidades de Negocio abajo para comenzar</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn">Empecemos</a>
+      </div>
+    </section>
+  </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div>
         <h3>Legatsy Digital</h3>
-        <p>Legatsy DMA’s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+        <p id="footer-mission">Legatsy DMA's mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 id="footer-quick">Quick Links</h4>
         <ul>
-          <li>Home</li><li>About</li><li>Services</li><li>Contact Us</li>
+          <li><a href="index.html" id="footer-home">Home</a></li>
+          <li><a href="about.html" id="footer-about">About</a></li>
+          <li><a href="services.html" id="footer-services">Services</a></li>
+          <li><a href="#" id="footer-contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Service Overview</h4>
+        <h4 id="footer-service-overview">Service Overview</h4>
         <ul>
-          <li>Market Research</li><li>Paid advertising</li><li>SEO management</li><li>Social Media Marketing</li><li>Web design and maintenance</li>
+          <li><a href="marketresearch.html" id="footer-market">Market Research</a></li>
+          <li><a href="paidad.html" id="footer-paid">Paid Advertising</a></li>
+          <li><a href="seo.html" id="footer-seo">SEO Management</a></li>
+          <li><a href="socialmedia.html" id="footer-social">Social Media Marketing</a></li>
+          <li><a href="webdesign.html" id="footer-web">Web Design and Maintenance</a></li>
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h4 id="footer-legal">Legal</h4>
         <ul>
-          <li>Privacy Policy</li><li>Terms of Service</li>
+          <li><a href="#" id="footer-privacy">Privacy Policy</a></li>
+          <li><a href="#" id="footer-terms">Terms of Service</a></li>
         </ul>
       </div>
     </div>
-    <p style="margin-top: 2rem;">© 2025 • Legatsy Digital Marketing Agency • All Rights Reserved</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Legatsy Digital Marketing Agency. All Rights Reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Language switching function
+    function switchLanguage(lang) {
+      // Hide all content
+      document.querySelectorAll('.lang-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update navigation and footer text
+      updateNavigationText(lang);
+      updateFooterText(lang);
+      
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Update page language attribute
+      document.documentElement.lang = lang;
+    }
+
+    function updateNavigationText(lang) {
+      const navTexts = {
+        en: {
+          home: 'Home',
+          about: 'About Us',
+          services: 'Services ▾',
+          market: 'Market Research',
+          social: 'Social Media Marketing',
+          seo: 'SEO Management',
+          web: 'Web Development',
+          paid: 'Paid Advertising',
+          contact: 'Contact Us',
+          contactBtn: '📞 Contact us today'
+        },
+        fr: {
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services ▾',
+          market: 'Recherche de marché',
+          social: 'Marketing des médias sociaux',
+          seo: 'Gestion SEO',
+          web: 'Développement web',
+          paid: 'Publicité payante',
+          contact: 'Contactez-nous',
+          contactBtn: '📞 Contactez-nous aujourd\'hui'
+        },
+        es: {
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios ▾',
+          market: 'Investigación de mercado',
+          social: 'Marketing en redes sociales',
+          seo: 'Gestión SEO',
+          web: 'Desarrollo web',
+          paid: 'Publicidad pagada',
+          contact: 'Contáctanos',
+          contactBtn: '📞 Contáctanos hoy'
+        }
+      };
+
+      const texts = navTexts[lang];
+      document.querySelector('.nav-home').textContent = texts.home;
+      document.querySelector('.nav-about').textContent = texts.about;
+      document.querySelector('.nav-services').textContent = texts.services;
+      document.querySelector('.nav-market').textContent = texts.market;
+      document.querySelector('.nav-social').textContent = texts.social;
+      document.querySelector('.nav-seo').textContent = texts.seo;
+      document.querySelector('.nav-web').textContent = texts.web;
+      document.querySelector('.nav-paid').textContent = texts.paid;
+      document.querySelector('.nav-contact').textContent = texts.contact;
+      document.getElementById('contact-btn').textContent = texts.contactBtn;
+    }
+
+    function updateFooterText(lang) {
+      const footerTexts = {
+        en: {
+          mission: 'Legatsy DMA\'s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.',
+          quick: 'Quick Links',
+          home: 'Home',
+          about: 'About',
+          services: 'Services',
+          contact: 'Contact Us',
+          serviceOverview: 'Service Overview',
+          market: 'Market Research',
+          paid: 'Paid Advertising',
+          seo: 'SEO Management',
+          social: 'Social Media Marketing',
+          web: 'Web Design and Maintenance',
+          legal: 'Legal',
+          privacy: 'Privacy Policy',
+          terms: 'Terms of Service'
+        },
+        fr: {
+          mission: 'La mission de Legatsy DMA est de partager le fardeau des propriétaires de petites entreprises en les aidant à trouver et gérer efficacement leurs clients, afin qu\'ils aient le temps de servir leurs clients avec amour et attention.',
+          quick: 'Liens rapides',
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services',
+          contact: 'Contactez-nous',
+          serviceOverview: 'Aperçu des services',
+          market: 'Recherche de marché',
+          paid: 'Publicité payante',
+          seo: 'Gestion SEO',
+          social: 'Marketing des médias sociaux',
+          web: 'Conception et maintenance web',
+          legal: 'Légal',
+          privacy: 'Politique de confidentialité',
+          terms: 'Conditions de service'
+        },
+        es: {
+          mission: 'La misión de Legatsy DMA es compartir la carga de los propietarios de pequeñas empresas apoyándolos para encontrar y gestionar clientes de manera efectiva, para que tengan tiempo de servir a sus clientes con amor y atención.',
+          quick: 'Enlaces rápidos',
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios',
+          contact: 'Contáctanos',
+          serviceOverview: 'Resumen de servicios',
+          market: 'Investigación de mercado',
+          paid: 'Publicidad pagada',
+          seo: 'Gestión SEO',
+          social: 'Marketing en redes sociales',
+          web: 'Diseño y mantenimiento web',
+          legal: 'Legal',
+          privacy: 'Política de privacidad',
+          terms: 'Términos de servicio'
+        }
+      };
+
+      const texts = footerTexts[lang];
+      document.getElementById('footer-mission').textContent = texts.mission;
+      document.getElementById('footer-quick').textContent = texts.quick;
+      document.getElementById('footer-home').textContent = texts.home;
+      document.getElementById('footer-about').textContent = texts.about;
+      document.getElementById('footer-services').textContent = texts.services;
+      document.getElementById('footer-contact').textContent = texts.contact;
+      document.getElementById('footer-service-overview').textContent = texts.serviceOverview;
+      document.getElementById('footer-market').textContent = texts.market;
+      document.getElementById('footer-paid').textContent = texts.paid;
+      document.getElementById('footer-seo').textContent = texts.seo;
+      document.getElementById('footer-social').textContent = texts.social;
+      document.getElementById('footer-web').textContent = texts.web;
+      document.getElementById('footer-legal').textContent = texts.legal;
+      document.getElementById('footer-privacy').textContent = texts.privacy;
+      document.getElementById('footer-terms').textContent = texts.terms;
+    }
+
+    // Auto-detect browser language on page load
+    window.addEventListener('load', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      const browserLanguage = navigator.language.substring(0, 2);
+      
+      let defaultLanguage = 'en';
+      
+      if (savedLanguage && ['en', 'fr', 'es'].includes(savedLanguage)) {
+        defaultLanguage = savedLanguage;
+      } else if (['fr', 'es'].includes(browserLanguage)) {
+        defaultLanguage = browserLanguage;
+      }
+      
+      if (defaultLanguage !== 'en') {
+        switchLanguage(defaultLanguage);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -28,38 +28,66 @@
       list-style: none;
     }
 
-    /* Header */
+    /* Enhanced Header - Same as Main Page */
     .topbar {
-      background-color: #fca311;
+      background: linear-gradient(135deg, #fca311 0%, #f77f00 100%);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2rem;
       flex-wrap: wrap;
       position: relative;
+      box-shadow: 0 4px 20px rgba(252, 163, 17, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+      pointer-events: none;
     }
 
     .logo {
-      font-size: 1.3rem;
-      font-weight: bold;
+      font-size: 1.4rem;
+      font-weight: 800;
       flex-shrink: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
     }
 
     .logo span {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0.9;
+      margin-top: 2px;
     }
 
     nav {
       flex: 1;
       display: flex;
       justify-content: center;
+      position: relative;
+      z-index: 2;
     }
 
+    /* Enhanced Navigation - Fixed Dropdown Issue */
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .nav-links li {
@@ -67,84 +95,162 @@
     }
 
     .nav-links a {
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .nav-links a:hover::before {
+      left: 100%;
     }
 
     .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
+    /* IMPORTANT: Only apply dropdown styles to .dropdown class, not all li elements */
     .nav-links .dropdown-content {
       display: none;
       position: absolute;
-      top: 100%;
+      top: 110%;
       left: 0;
-      background: white;
-      min-width: 200px;
-      padding: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      min-width: 220px;
+      padding: 0.8rem 0;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       z-index: 1000;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    /* CRITICAL FIX: Only show dropdown on .dropdown elements, not regular nav items */
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Make sure regular nav links don't trigger dropdown behavior */
+    .nav-links li:not(.dropdown) .dropdown-content {
+      display: none !important;
     }
 
     .nav-links .dropdown-content a {
       display: block;
-      padding: 0.5rem 1rem;
-      color: #222;
+      padding: 0.7rem 1.5rem;
+      color: #333;
+      border-radius: 10px;
+      margin: 0 0.5rem;
+      font-weight: 500;
     }
 
     .nav-links .dropdown-content a:hover {
-      background-color: #f5f5f5;
-    }
-
-    .nav-links .dropdown:hover .dropdown-content {
-      display: block;
+      background: linear-gradient(135deg, #fca311, #f77f00);
+      color: white;
+      transform: translateX(5px);
     }
 
     .contact-btn {
-      background: #f77f00;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
+      background: linear-gradient(135deg, #f77f00, #e6720a);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
       color: #fff;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+      font-weight: 700;
+      transition: all 0.3s ease;
       flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 15px rgba(247, 127, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
     .contact-btn:hover {
-      background: #e6720a;
+      background: linear-gradient(135deg, #e6720a, #d0640a);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(247, 127, 0, 0.4);
     }
 
     .lang-btn {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 0.3rem 0.6rem;
-      margin: 0 0.2rem;
-      border-radius: 4px;
-      font-weight: bold;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 0.8rem;
+      margin: 0 0.3rem;
+      border-radius: 15px;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
     }
 
     .lang-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Hero Section */
+    /* Enhanced Hero Section */
     .hero {
-      background: linear-gradient(45deg, #fca311 50%, #000 50%);
-      color: white;
+      background: linear-gradient(135deg, #fca311 0%, #f77f00 50%, #fff 50%, #f8f9fa 100%);
+      color: #222;
       padding: 5rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(247, 127, 0, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+      pointer-events: none;
     }
 
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(135deg, #222, #444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+      color: #555;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
 
     /* Intro Section */
@@ -182,10 +288,10 @@
     }
 
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
-      justify-items: center;
     }
 
     .service-card {
@@ -373,6 +479,8 @@
         flex-direction: column;
         gap: 0.5rem;
         width: 100%;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 1rem;
       }
 
       .nav-links li {
@@ -384,7 +492,7 @@
         display: block;
         padding: 0.8rem;
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
+        border-radius: 10px;
       }
 
       .nav-links .dropdown-content {
@@ -392,7 +500,7 @@
         display: none;
         background: rgba(255, 255, 255, 0.9);
         margin-top: 0.5rem;
-        border-radius: 4px;
+        border-radius: 10px;
       }
 
       .contact-btn {
@@ -462,7 +570,7 @@
       <ul class="nav-links">
         <li><a href="index.html" class="nav-home">Home</a></li>
         <li><a href="about.html" class="nav-about">About Us</a></li>
-        <li class="dropdown">
+
           <a href="services.html" class="nav-services">Services ▾</a>
           <ul class="dropdown-content">
             <li><a href="marketresearch.html" class="nav-market">Market Research</a></li>
@@ -480,7 +588,7 @@
         </li>
       </ul>
     </nav>
-    <a class="contact-btn" href="#" id="contact-btn">📞 Contact us today</a>
+    <a class="contact-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" id="contact-btn">📞 Contact us today</a>
   </header>
 
   <!-- ENGLISH CONTENT -->
@@ -501,7 +609,7 @@
     <section class="services-container">
       <div class="services-grid">
         <div class="service-card">
-          <img src="images/service1.jpg" alt="Market Research">
+          <img src="images/mark.jpg" alt="Market Research">
           <div class="service-card-content">
             <h3>Market Research</h3>
             <p>Businesses looking to understand their target audience and market trends.</p>
@@ -510,7 +618,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service2.jpg" alt="Social Media Marketing">
+          <img src="images/makes.jpg" alt="Social Media Marketing">
           <div class="service-card-content">
             <h3>Social Media Marketing</h3>
             <p>Brands looking to increase social media presence and engagement.</p>
@@ -519,7 +627,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service3.jpg" alt="SEO">
+          <img src="images/seo.jpg" alt="SEO">
           <div class="service-card-content">
             <h3>SEO Management</h3>
             <p>Businesses seeking to improve online visibility and search engine rankings.</p>
@@ -528,7 +636,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service4.jpg" alt="Paid Ads">
+          <img src="images/paidadv.jpeg" alt="Paid Ads">
           <div class="service-card-content">
             <h3>Paid Advertising</h3>
             <p>Brands needing quick, measurable results through digital ads.</p>
@@ -537,7 +645,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service5.jpg" alt="Web Design">
+          <img src="images/fih.jpg" alt="Web Design">
           <div class="service-card-content">
             <h3>Web Design and Maintenance</h3>
             <p>Businesses wanting a strong online presence.</p>
@@ -553,7 +661,7 @@
       <div class="cta-text">
         <h2>Ready to scale your business with us?</h2>
         <p>Fill our Business Needs Assessment Form below to get started</p>
-        <a href="#" class="btn">Let's get started</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn">Let's get started</a>
       </div>
     </section>
   </div>
@@ -576,7 +684,7 @@
     <section class="services-container">
       <div class="services-grid">
         <div class="service-card">
-          <img src="images/service1.jpg" alt="Recherche de marché">
+          <img src="images/mark.jpg" alt="Recherche de marché">
           <div class="service-card-content">
             <h3>Recherche de Marché</h3>
             <p>Entreprises cherchant à comprendre leur public cible et les tendances du marché.</p>
@@ -585,7 +693,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service2.jpg" alt="Marketing des médias sociaux">
+          <img src="images/makes.jpg" alt="Marketing des médias sociaux">
           <div class="service-card-content">
             <h3>Marketing des Médias Sociaux</h3>
             <p>Marques cherchant à augmenter leur présence et engagement sur les médias sociaux.</p>
@@ -594,7 +702,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service3.jpg" alt="SEO">
+          <img src="images/seo.jpg" alt="SEO">
           <div class="service-card-content">
             <h3>Gestion SEO</h3>
             <p>Entreprises cherchant à améliorer la visibilité en ligne et le classement des moteurs de recherche.</p>
@@ -603,7 +711,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service4.jpg" alt="Publicité payante">
+          <img src="images/paidadv.jpeg" alt="Publicité payante">
           <div class="service-card-content">
             <h3>Publicité Payante</h3>
             <p>Marques ayant besoin de résultats rapides et mesurables grâce aux annonces numériques.</p>
@@ -612,7 +720,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service5.jpg" alt="Conception web">
+          <img src="images/fih.jpg" alt="Conception web">
           <div class="service-card-content">
             <h3>Conception et Maintenance Web</h3>
             <p>Entreprises voulant une forte présence en ligne.</p>
@@ -628,7 +736,7 @@
       <div class="cta-text">
         <h2>Prêt à développer votre entreprise avec nous?</h2>
         <p>Remplissez notre formulaire d'évaluation des besoins d'entreprise ci-dessous pour commencer</p>
-        <a href="#" class="btn">Commençons</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn">Commençons</a>
       </div>
     </section>
   </div>
@@ -651,7 +759,7 @@
     <section class="services-container">
       <div class="services-grid">
         <div class="service-card">
-          <img src="images/service1.jpg" alt="Investigación de mercado">
+          <img src="images/mark.jpg" alt="Investigación de mercado">
           <div class="service-card-content">
             <h3>Investigación de Mercado</h3>
             <p>Empresas que buscan entender su audiencia objetivo y tendencias del mercado.</p>
@@ -660,7 +768,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service2.jpg" alt="Marketing en redes sociales">
+          <img src="images/makes.jpg" alt="Marketing en redes sociales">
           <div class="service-card-content">
             <h3>Marketing en Redes Sociales</h3>
             <p>Marcas que buscan aumentar su presencia y engagement en redes sociales.</p>
@@ -669,7 +777,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service3.jpg" alt="SEO">
+          <img src="images/seo.jpg" alt="SEO">
           <div class="service-card-content">
             <h3>Gestión SEO</h3>
             <p>Empresas que buscan mejorar la visibilidad online y rankings en motores de búsqueda.</p>
@@ -678,7 +786,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service4.jpg" alt="Publicidad pagada">
+          <img src="images/paidadv.jpeg" alt="Publicidad pagada">
           <div class="service-card-content">
             <h3>Publicidad Pagada</h3>
             <p>Marcas que necesitan resultados rápidos y medibles a través de anuncios digitales.</p>
@@ -687,7 +795,7 @@
         </div>
 
         <div class="service-card">
-          <img src="images/service5.jpg" alt="Diseño web">
+          <img src="images/fih.jpg" alt="Diseño web">
           <div class="service-card-content">
             <h3>Diseño y Mantenimiento Web</h3>
             <p>Empresas que desean una fuerte presencia online.</p>
@@ -703,7 +811,7 @@
       <div class="cta-text">
         <h2>¿Listo para escalar tu negocio con nosotros?</h2>
         <p>Llena nuestro Formulario de Evaluación de Necesidades de Negocio abajo para comenzar</p>
-        <a href="#" class="btn">Empecemos</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-EchDMoonVieDYM7dyQfNmX7NwH7Tj7isXQ9gSruyoUVpEQ/viewform" class="btn">Empecemos</a>
       </div>
     </section>
   </div>
@@ -769,6 +877,7 @@
       document.documentElement.lang = lang;
     }
 
+
     function updateNavigationText(lang) {
       const navTexts = {
         en: {
@@ -805,6 +914,80 @@
           web: 'Desarrollo web',
           paid: 'Publicidad pagada',
           contact: 'Contáctanos',
+          contactBtn: '📞 Contáctanos hoy'
+        }
+      };
+
+      const texts = navTexts[lang];
+      
+      // Update navigation text ONLY, preserving href attributes
+      const navHome = document.querySelector('.nav-home');
+      const navAbout = document.querySelector('.nav-about');
+      const navServices = document.querySelector('.nav-services');
+      const navMarket = document.querySelector('.nav-market');
+      const navSocial = document.querySelector('.nav-social');
+      const navSeo = document.querySelector('.nav-seo');
+      const navWeb = document.querySelector('.nav-web');
+      const navPaid = document.querySelector('.nav-paid');
+      const navContact = document.querySelector('.nav-contact');
+      const contactBtn = document.getElementById('contact-btn');
+
+      // Only update textContent, never href or other attributes
+      if (navHome) navHome.textContent = texts.home;
+      if (navAbout) navAbout.textContent = texts.about;
+      if (navServices) navServices.textContent = texts.services;
+      if (navMarket) navMarket.textContent = texts.market;
+      if (navSocial) navSocial.textContent = texts.social;
+      if (navSeo) navSeo.textContent = texts.seo;
+      if (navWeb) navWeb.textContent = texts.web;
+      if (navPaid) navPaid.textContent = texts.paid;
+      if (navContact) navContact.textContent = texts.contact;
+      if (contactBtn) contactBtn.textContent = texts.contactBtn;
+    }
+
+    function updateFooterText(lang) {
+      const footerTexts = {
+        en: {
+          mission: 'Legatsy DMA\'s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.',
+          quick: 'Quick Links',
+          home: 'Home',
+          about: 'About',
+          services: 'Services',
+          contact: 'Contact Us',
+          serviceOverview: 'Service Overview',
+          market: 'Market Research',
+          paid: 'Paid Advertising',
+          seo: 'SEO Management',
+          social: 'Social Media Marketing',
+          web: 'Web Design and Maintenance',
+          legal: 'Legal',
+          privacy: 'Privacy Policy',
+          terms: 'Terms of Service'
+        },
+        fr: {
+          mission: 'La mission de Legatsy DMA est de partager le fardeau des propriétaires de petites entreprises en les aidant à trouver et gérer efficacement leurs clients, afin qu\'ils aient le temps de servir leurs clients avec amour et attention.',
+          quick: 'Liens rapides',
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services',
+          contact: 'Contactez-nous',
+          serviceOverview: 'Aperçu des services',
+          market: 'Recherche de marché',
+          paid: 'Publicité payante',
+          seo: 'Gestion SEO',
+          social: 'Marketing des médias sociaux',
+          web: 'Conception et maintenance web',
+          legal: 'Légal',
+          privacy: 'Politique de confidentialité',
+          terms: 'Conditions de service'
+        },
+        es: {
+          mission: 'La misión de Legatsy DMA es compartir la carga de los propietarios de pequeñas empresas apoyándolos para encontrar y gestionar clientes de manera efectiva, para que tengan tiempo de servir a sus clientes con amor y atención.',
+          quick: 'Enlaces rápidos',
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios',
+          contact: 'Contáctanos',
           serviceOverview: 'Resumen de servicios',
           market: 'Investigación de mercado',
           paid: 'Publicidad pagada',
@@ -818,21 +1001,39 @@
       };
 
       const texts = footerTexts[lang];
-      document.getElementById('footer-mission').textContent = texts.mission;
-      document.getElementById('footer-quick').textContent = texts.quick;
-      document.getElementById('footer-home').textContent = texts.home;
-      document.getElementById('footer-about').textContent = texts.about;
-      document.getElementById('footer-services').textContent = texts.services;
-      document.getElementById('footer-contact').textContent = texts.contact;
-      document.getElementById('footer-service-overview').textContent = texts.serviceOverview;
-      document.getElementById('footer-market').textContent = texts.market;
-      document.getElementById('footer-paid').textContent = texts.paid;
-      document.getElementById('footer-seo').textContent = texts.seo;
-      document.getElementById('footer-social').textContent = texts.social;
-      document.getElementById('footer-web').textContent = texts.web;
-      document.getElementById('footer-legal').textContent = texts.legal;
-      document.getElementById('footer-privacy').textContent = texts.privacy;
-      document.getElementById('footer-terms').textContent = texts.terms;
+      
+      // Update footer text with error checking
+      const footerMission = document.getElementById('footer-mission');
+      const footerQuick = document.getElementById('footer-quick');
+      const footerHome = document.getElementById('footer-home');
+      const footerAbout = document.getElementById('footer-about');
+      const footerServices = document.getElementById('footer-services');
+      const footerContact = document.getElementById('footer-contact');
+      const footerServiceOverview = document.getElementById('footer-service-overview');
+      const footerMarket = document.getElementById('footer-market');
+      const footerPaid = document.getElementById('footer-paid');
+      const footerSeo = document.getElementById('footer-seo');
+      const footerSocial = document.getElementById('footer-social');
+      const footerWeb = document.getElementById('footer-web');
+      const footerLegal = document.getElementById('footer-legal');
+      const footerPrivacy = document.getElementById('footer-privacy');
+      const footerTerms = document.getElementById('footer-terms');
+
+      if (footerMission) footerMission.textContent = texts.mission;
+      if (footerQuick) footerQuick.textContent = texts.quick;
+      if (footerHome) footerHome.textContent = texts.home;
+      if (footerAbout) footerAbout.textContent = texts.about;
+      if (footerServices) footerServices.textContent = texts.services;
+      if (footerContact) footerContact.textContent = texts.contact;
+      if (footerServiceOverview) footerServiceOverview.textContent = texts.serviceOverview;
+      if (footerMarket) footerMarket.textContent = texts.market;
+      if (footerPaid) footerPaid.textContent = texts.paid;
+      if (footerSeo) footerSeo.textContent = texts.seo;
+      if (footerSocial) footerSocial.textContent = texts.social;
+      if (footerWeb) footerWeb.textContent = texts.web;
+      if (footerLegal) footerLegal.textContent = texts.legal;
+      if (footerPrivacy) footerPrivacy.textContent = texts.privacy;
+      if (footerTerms) footerTerms.textContent = texts.terms;
     }
 
     // Auto-detect browser language on page load

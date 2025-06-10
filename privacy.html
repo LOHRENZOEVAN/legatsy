@@ -5,210 +5,814 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy | Legatsy Digital</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #222; background: #fff; }
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    header {
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    .topbar {
       background-color: #fca311;
-      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
       flex-wrap: wrap;
+      position: relative;
     }
 
-    .logo { font-weight: bold; font-size: 1.2rem; color: #fff; }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
 
-    nav ul {
+    .logo span {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      flex: 1;
       display: flex;
-      gap: 1rem;
-      list-style: none;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
 
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #222;
+    }
+
+    .nav-links .dropdown-content a:hover {
+      background-color: #f5f5f5;
+    }
+
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .contact-btn {
+      background: #f77f00;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-btn:hover {
+      background: #e6720a;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.3rem 0.6rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(45deg, #fca311 50%, #000 50%);
       color: white;
-      padding: 5rem 1.5rem;
+      padding: 5rem 2rem;
       text-align: center;
     }
 
     .hero h1 {
       font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
+    /* Main Content Section */
     .container {
       max-width: 900px;
-      margin: auto;
-      padding: 2rem 1.5rem;
+      margin: 0 auto;
+      padding: 4rem 2rem;
     }
 
-    h2 {
+    .container p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .container h2 {
       color: #f77f00;
+      margin: 2.5rem 0 1.5rem 0;
+      font-size: 1.6rem;
+    }
+
+    .container ul, .container ol {
+      margin-left: 1.5rem;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .container ul li, .container ol li {
+      margin-bottom: 0.8rem;
+      list-style: disc;
+      font-size: 1rem;
+    }
+
+    .container strong {
+      color: #f77f00;
+    }
+
+    .effective-date {
+      background: #fdf0d3;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid #fca311;
+    }
+
+    .contact-info {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 5px solid #f77f00;
       margin-top: 2rem;
     }
 
-    ul, ol {
-      margin-left: 1.5rem;
-      padding-left: 1rem;
-    }
-
+    /* Footer */
     footer {
       background: #3d2b1f;
-      color: white;
-      padding: 2rem 1.5rem;
-      margin-top: 3rem;
+      color: #fff;
+      padding: 2rem;
     }
 
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .footer-grid div {
-      flex: 1 1 200px;
+      flex: 1;
+      min-width: 180px;
     }
 
-    h3, h4 {
+    .footer-grid h4,
+    .footer-grid h3 {
       color: #fca311;
+      margin-bottom: 1rem;
+    }
+
+    .footer-grid ul li {
       margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
+    .footer-grid a:hover {
+      color: #fca311;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+
+    /* Language content visibility */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .logo {
+        order: 1;
+        text-align: center;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      .nav-links .dropdown-content {
+        position: static;
+        display: none;
+        background: rgba(255, 255, 255, 0.9);
+        margin-top: 0.5rem;
+        border-radius: 4px;
+      }
+
+      .contact-btn {
+        order: 2;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- Header -->
-  <header>
-    <div class="logo">LEGATSY DIGITAL</div>
+  <header class="topbar">
+    <div class="logo">LEGATSY DIGITAL <span>MARKETING AGENCY</span></div>
     <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact us today</a></li>
-        <li><a href="#">🇨🇦 EN ⌃</a></li>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About Us</a></li>
+        <li class="dropdown">
+          <a href="services.html" class="nav-services">Services ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="marketresearch.html" class="nav-market">Market Research</a></li>
+            <li><a href="socialmedia.html" class="nav-social">Social Media Marketing</a></li>
+            <li><a href="seo.html" class="nav-seo">SEO Management</a></li>
+            <li><a href="webdesign.html" class="nav-web">Web Development</a></li>
+            <li><a href="paidad.html" class="nav-paid">Paid Advertising</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="nav-contact">Contact Us</a></li>
+        <li>
+          <button class="lang-btn" onclick="switchLanguage('en')">🇨🇦 EN</button>
+          <button class="lang-btn" onclick="switchLanguage('fr')">🇫🇷 FR</button>
+          <button class="lang-btn" onclick="switchLanguage('es')">🇪🇸 ES</button>
+        </li>
       </ul>
     </nav>
+    <a class="contact-btn" href="#" id="contact-btn">📞 Contact us today</a>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Privacy Policy</h1>
-  </section>
+  <!-- ENGLISH CONTENT -->
+  <div id="content-en" class="lang-content active">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Privacy Policy</h1>
+    </section>
 
-  <!-- Main Content -->
-  <section class="container">
-    <p><strong>Effective Date:</strong> December 10, 2024</p>
-    <p><strong>Last Updated:</strong> December 10, 2024</p>
+    <!-- Main Content -->
+    <section class="container">
+      <div class="effective-date">
+        <p><strong>Effective Date:</strong> December 10, 2024</p>
+        <p><strong>Last Updated:</strong> December 10, 2024</p>
+      </div>
 
-    <p>Legatsy Digital Marketing Agency (“we,” “us,” or “our”) values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA).</p>
+      <p>Legatsy Digital Marketing Agency ("we," "us," or "our") values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA).</p>
 
-    <h2>1. Accountability</h2>
-    <p>We take responsibility for the personal information under our control and have appointed a Privacy Officer to oversee compliance with this Privacy Policy and PIPEDA.</p>
+      <h2>1. Accountability</h2>
+      <p>We take responsibility for the personal information under our control and have appointed a Privacy Officer to oversee compliance with this Privacy Policy and PIPEDA.</p>
 
-    <h2>2. Information We Collect</h2>
-    <ul>
-      <li><strong>Personal Information You Provide Voluntarily:</strong> name, email, phone, business name, messages</li>
-      <li><strong>Automatically Collected Info:</strong> IP, browser, OS, pages visited, timestamps, etc.</li>
-    </ul>
+      <h2>2. Information We Collect</h2>
+      <ul>
+        <li><strong>Personal Information You Provide Voluntarily:</strong> name, email, phone, business name, messages</li>
+        <li><strong>Automatically Collected Info:</strong> IP, browser, OS, pages visited, timestamps, etc.</li>
+      </ul>
 
-    <h2>3. How We Use Your Information</h2>
-    <ul>
-      <li>To provide and improve our services</li>
-      <li>To send communications (with your consent)</li>
-      <li>To ensure website security</li>
-      <li>To comply with legal requirements</li>
-    </ul>
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To provide and improve our services</li>
+        <li>To send communications (with your consent)</li>
+        <li>To ensure website security</li>
+        <li>To comply with legal requirements</li>
+      </ul>
 
-    <h2>4. How We Obtain Consent</h2>
-    <p>We obtain express or implied consent where applicable. You may withdraw consent at any time by contacting us.</p>
+      <h2>4. How We Obtain Consent</h2>
+      <p>We obtain express or implied consent where applicable. You may withdraw consent at any time by contacting us.</p>
 
-    <h2>5. How We Share Your Information</h2>
-    <ul>
-      <li>With service providers under strict agreements</li>
-      <li>As required by law</li>
-      <li>For business transfers</li>
-    </ul>
+      <h2>5. How We Share Your Information</h2>
+      <ul>
+        <li>With service providers under strict agreements</li>
+        <li>As required by law</li>
+        <li>For business transfers</li>
+      </ul>
 
-    <h2>6. Use of Cookies and Tracking Technologies</h2>
-    <p>We use cookies for functionality, analytics, and marketing. You may disable cookies in your browser settings.</p>
+      <h2>6. Use of Cookies and Tracking Technologies</h2>
+      <p>We use cookies for functionality, analytics, and marketing. You may disable cookies in your browser settings.</p>
 
-    <h2>7. How We Protect Your Information</h2>
-    <p>We use encryption, firewalls, and access control to safeguard your data.</p>
+      <h2>7. How We Protect Your Information</h2>
+      <p>We use encryption, firewalls, and access control to safeguard your data.</p>
 
-    <h2>8. Your Rights Under PIPEDA</h2>
-    <ul>
-      <li>Access</li>
-      <li>Correction</li>
-      <li>Deletion</li>
-      <li>Withdraw consent</li>
-    </ul>
+      <h2>8. Your Rights Under PIPEDA</h2>
+      <ul>
+        <li>Access</li>
+        <li>Correction</li>
+        <li>Deletion</li>
+        <li>Withdraw consent</li>
+      </ul>
 
-    <h2>9. Retention of Personal Information</h2>
-    <p>We retain your data only as long as necessary and dispose of it securely.</p>
+      <h2>9. Retention of Personal Information</h2>
+      <p>We retain your data only as long as necessary and dispose of it securely.</p>
 
-    <h2>10. Third-Party Websites</h2>
-    <p>We are not responsible for the privacy policies of other sites linked from ours.</p>
+      <h2>10. Third-Party Websites</h2>
+      <p>We are not responsible for the privacy policies of other sites linked from ours.</p>
 
-    <h2>11. Cross-Border Transfers</h2>
-    <p>By using our site, you consent to your data being processed in Canada.</p>
+      <h2>11. Cross-Border Transfers</h2>
+      <p>By using our site, you consent to your data being processed in Canada.</p>
 
-    <h2>12. Children’s Privacy</h2>
-    <p>We do not knowingly collect data from children under 13. If identified, we delete it promptly.</p>
+      <h2>12. Children's Privacy</h2>
+      <p>We do not knowingly collect data from children under 13. If identified, we delete it promptly.</p>
 
-    <h2>13. Changes to This Policy</h2>
-    <p>We may update this policy. Changes will be reflected by updating the date above.</p>
+      <h2>13. Changes to This Policy</h2>
+      <p>We may update this policy. Changes will be reflected by updating the date above.</p>
 
-    <h2>14. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, contact:</p>
-    <p>
-      <strong>Legatsy Digital Marketing Agency</strong><br/>
-      Privacy Officer<br/>
-      2995 Boul. St.-Joseph,<br/>
-      Drummondville (Québec), Canada<br/>
-      <strong>Email:</strong> legatsydigital@gmail.com
-    </p>
-  </section>
+      <h2>14. Contact Us</h2>
+      <div class="contact-info">
+        <p>If you have any questions about this Privacy Policy, contact:</p>
+        <p>
+          <strong>Legatsy Digital Marketing Agency</strong><br/>
+          Privacy Officer<br/>
+          2995 Boul. St.-Joseph,<br/>
+          Drummondville (Québec), Canada<br/>
+          <strong>Email:</strong> legatsydigital@gmail.com
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- FRENCH CONTENT -->
+  <div id="content-fr" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Politique de Confidentialité</h1>
+    </section>
+
+    <!-- Main Content -->
+    <section class="container">
+      <div class="effective-date">
+        <p><strong>Date d'entrée en vigueur:</strong> 10 décembre 2024</p>
+        <p><strong>Dernière mise à jour:</strong> 10 décembre 2024</p>
+      </div>
+
+      <p>Legatsy Digital Marketing Agency (« nous », « notre » ou « nos ») valorise votre vie privée et s'engage à protéger vos informations personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations conformément à la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE).</p>
+
+      <h2>1. Responsabilité</h2>
+      <p>Nous assumons la responsabilité des informations personnelles sous notre contrôle et avons nommé un Responsable de la Protection de la Vie Privée pour superviser la conformité avec cette Politique de Confidentialité et la LPRPDE.</p>
+
+      <h2>2. Informations que Nous Collectons</h2>
+      <ul>
+        <li><strong>Informations Personnelles que Vous Fournissez Volontairement:</strong> nom, email, téléphone, nom de l'entreprise, messages</li>
+        <li><strong>Informations Collectées Automatiquement:</strong> IP, navigateur, OS, pages visitées, horodatages, etc.</li>
+      </ul>
+
+      <h2>3. Comment Nous Utilisons Vos Informations</h2>
+      <ul>
+        <li>Pour fournir et améliorer nos services</li>
+        <li>Pour envoyer des communications (avec votre consentement)</li>
+        <li>Pour assurer la sécurité du site web</li>
+        <li>Pour respecter les exigences légales</li>
+      </ul>
+
+      <h2>4. Comment Nous Obtenons le Consentement</h2>
+      <p>Nous obtenons un consentement explicite ou implicite selon le cas. Vous pouvez retirer votre consentement à tout moment en nous contactant.</p>
+
+      <h2>5. Comment Nous Partageons Vos Informations</h2>
+      <ul>
+        <li>Avec des fournisseurs de services sous des accords stricts</li>
+        <li>Comme requis par la loi</li>
+        <li>Pour des transferts d'entreprise</li>
+      </ul>
+
+      <h2>6. Utilisation des Cookies et Technologies de Suivi</h2>
+      <p>Nous utilisons des cookies pour la fonctionnalité, l'analyse et le marketing. Vous pouvez désactiver les cookies dans les paramètres de votre navigateur.</p>
+
+      <h2>7. Comment Nous Protégeons Vos Informations</h2>
+      <p>Nous utilisons le chiffrement, les pare-feu et le contrôle d'accès pour protéger vos données.</p>
+
+      <h2>8. Vos Droits Sous la LPRPDE</h2>
+      <ul>
+        <li>Accès</li>
+        <li>Correction</li>
+        <li>Suppression</li>
+        <li>Retrait du consentement</li>
+      </ul>
+
+      <h2>9. Conservation des Informations Personnelles</h2>
+      <p>Nous conservons vos données seulement aussi longtemps que nécessaire et les éliminons de manière sécurisée.</p>
+
+      <h2>10. Sites Web de Tiers</h2>
+      <p>Nous ne sommes pas responsables des politiques de confidentialité des autres sites liés depuis le nôtre.</p>
+
+      <h2>11. Transferts Transfrontaliers</h2>
+      <p>En utilisant notre site, vous consentez à ce que vos données soient traitées au Canada.</p>
+
+      <h2>12. Confidentialité des Enfants</h2>
+      <p>Nous ne collectons pas sciemment de données d'enfants de moins de 13 ans. Si identifiées, nous les supprimons rapidement.</p>
+
+      <h2>13. Modifications de Cette Politique</h2>
+      <p>Nous pouvons mettre à jour cette politique. Les changements seront reflétés en mettant à jour la date ci-dessus.</p>
+
+      <h2>14. Nous Contacter</h2>
+      <div class="contact-info">
+        <p>Si vous avez des questions concernant cette Politique de Confidentialité, contactez:</p>
+        <p>
+          <strong>Legatsy Digital Marketing Agency</strong><br/>
+          Responsable de la Protection de la Vie Privée<br/>
+          2995 Boul. St.-Joseph,<br/>
+          Drummondville (Québec), Canada<br/>
+          <strong>Email:</strong> legatsydigital@gmail.com
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- SPANISH CONTENT -->
+  <div id="content-es" class="lang-content">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Política de Privacidad</h1>
+    </section>
+
+    <!-- Main Content -->
+    <section class="container">
+      <div class="effective-date">
+        <p><strong>Fecha de Vigencia:</strong> 10 de diciembre de 2024</p>
+        <p><strong>Última Actualización:</strong> 10 de diciembre de 2024</p>
+      </div>
+
+      <p>Legatsy Digital Marketing Agency ("nosotros", "nuestro" o "nuestros") valora su privacidad y está comprometido a proteger su información personal. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información de acuerdo con la Ley de Protección de Información Personal y Documentos Electrónicos (PIPEDA).</p>
+
+      <h2>1. Responsabilidad</h2>
+      <p>Asumimos la responsabilidad de la información personal bajo nuestro control y hemos designado un Oficial de Privacidad para supervisar el cumplimiento de esta Política de Privacidad y PIPEDA.</p>
+
+      <h2>2. Información que Recopilamos</h2>
+      <ul>
+        <li><strong>Información Personal que Proporciona Voluntariamente:</strong> nombre, email, teléfono, nombre de la empresa, mensajes</li>
+        <li><strong>Información Recopilada Automáticamente:</strong> IP, navegador, OS, páginas visitadas, marcas de tiempo, etc.</li>
+      </ul>
+
+      <h2>3. Cómo Usamos Su Información</h2>
+      <ul>
+        <li>Para proporcionar y mejorar nuestros servicios</li>
+        <li>Para enviar comunicaciones (con su consentimiento)</li>
+        <li>Para asegurar la seguridad del sitio web</li>
+        <li>Para cumplir con requisitos legales</li>
+      </ul>
+
+      <h2>4. Cómo Obtenemos el Consentimiento</h2>
+      <p>Obtenemos consentimiento expreso o implícito según corresponda. Puede retirar el consentimiento en cualquier momento contactándonos.</p>
+
+      <h2>5. Cómo Compartimos Su Información</h2>
+      <ul>
+        <li>Con proveedores de servicios bajo acuerdos estrictos</li>
+        <li>Según requerido por ley</li>
+        <li>Para transferencias de negocio</li>
+      </ul>
+
+      <h2>6. Uso de Cookies y Tecnologías de Seguimiento</h2>
+      <p>Utilizamos cookies para funcionalidad, análisis y marketing. Puede desactivar las cookies en la configuración de su navegador.</p>
+
+      <h2>7. Cómo Protegemos Su Información</h2>
+      <p>Utilizamos encriptación, firewalls y control de acceso para proteger sus datos.</p>
+
+      <h2>8. Sus Derechos Bajo PIPEDA</h2>
+      <ul>
+        <li>Acceso</li>
+        <li>Corrección</li>
+        <li>Eliminación</li>
+        <li>Retirar consentimiento</li>
+      </ul>
+
+      <h2>9. Retención de Información Personal</h2>
+      <p>Retenemos sus datos solo el tiempo necesario y los eliminamos de forma segura.</p>
+
+      <h2>10. Sitios Web de Terceros</h2>
+      <p>No somos responsables de las políticas de privacidad de otros sitios enlazados desde el nuestro.</p>
+
+      <h2>11. Transferencias Transfronterizas</h2>
+      <p>Al usar nuestro sitio, consiente que sus datos sean procesados en Canadá.</p>
+
+      <h2>12. Privacidad de Menores</h2>
+      <p>No recopilamos conscientemente datos de niños menores de 13 años. Si se identifica, los eliminamos rápidamente.</p>
+
+      <h2>13. Cambios a Esta Política</h2>
+      <p>Podemos actualizar esta política. Los cambios se reflejarán actualizando la fecha anterior.</p>
+
+      <h2>14. Contáctanos</h2>
+      <div class="contact-info">
+        <p>Si tiene preguntas sobre esta Política de Privacidad, contacte:</p>
+        <p>
+          <strong>Legatsy Digital Marketing Agency</strong><br/>
+          Oficial de Privacidad<br/>
+          2995 Boul. St.-Joseph,<br/>
+          Drummondville (Québec), Canadá<br/>
+          <strong>Email:</strong> legatsydigital@gmail.com
+        </p>
+      </div>
+    </section>
+  </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div>
         <h3>Legatsy Digital</h3>
-        <p>Legatsy DMA’s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
+        <p id="footer-mission">Legatsy DMA's mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.</p>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 id="footer-quick">Quick Links</h4>
         <ul>
-          <li>Home</li><li>About</li><li>Services</li><li>Contact Us</li>
+          <li><a href="index.html" id="footer-home">Home</a></li>
+          <li><a href="about.html" id="footer-about">About</a></li>
+          <li><a href="services.html" id="footer-services">Services</a></li>
+          <li><a href="#" id="footer-contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Service Overview</h4>
+        <h4 id="footer-service-overview">Service Overview</h4>
         <ul>
-          <li>Market Research</li><li>Paid advertising</li><li>SEO management</li><li>Social Media Marketing</li><li>Web design and maintenance</li>
+          <li><a href="marketresearch.html" id="footer-market">Market Research</a></li>
+          <li><a href="paidad.html" id="footer-paid">Paid Advertising</a></li>
+          <li><a href="seo.html" id="footer-seo">SEO Management</a></li>
+          <li><a href="socialmedia.html" id="footer-social">Social Media Marketing</a></li>
+          <li><a href="webdesign.html" id="footer-web">Web Design and Maintenance</a></li>
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h4 id="footer-legal">Legal</h4>
         <ul>
-          <li>Privacy Policy</li><li>Terms of Service</li>
+          <li><a href="#" id="footer-privacy">Privacy Policy</a></li>
+          <li><a href="#" id="footer-terms">Terms of Service</a></li>
         </ul>
       </div>
     </div>
-    <p style="margin-top: 2rem;">© 2025 • Legatsy Digital Marketing Agency • All Rights Reserved</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Legatsy Digital Marketing Agency. All Rights Reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Language switching function
+    function switchLanguage(lang) {
+      // Hide all content
+      document.querySelectorAll('.lang-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update navigation and footer text
+      updateNavigationText(lang);
+      updateFooterText(lang);
+      
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Update page language attribute
+      document.documentElement.lang = lang;
+    }
+
+    function updateNavigationText(lang) {
+      const navTexts = {
+        en: {
+          home: 'Home',
+          about: 'About Us',
+          services: 'Services ▾',
+          market: 'Market Research',
+          social: 'Social Media Marketing',
+          seo: 'SEO Management',
+          web: 'Web Development',
+          paid: 'Paid Advertising',
+          contact: 'Contact Us',
+          contactBtn: '📞 Contact us today'
+        },
+        fr: {
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services ▾',
+          market: 'Recherche de marché',
+          social: 'Marketing des médias sociaux',
+          seo: 'Gestion SEO',
+          web: 'Développement web',
+          paid: 'Publicité payante',
+          contact: 'Contactez-nous',
+          contactBtn: '📞 Contactez-nous aujourd\'hui'
+        },
+        es: {
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios ▾',
+          market: 'Investigación de mercado',
+          social: 'Marketing en redes sociales',
+          seo: 'Gestión SEO',
+          web: 'Desarrollo web',
+          paid: 'Publicidad pagada',
+          contact: 'Contáctanos',
+          contactBtn: '📞 Contáctanos hoy'
+        }
+      };
+
+      const texts = navTexts[lang];
+      document.querySelector('.nav-home').textContent = texts.home;
+      document.querySelector('.nav-about').textContent = texts.about;
+      document.querySelector('.nav-services').textContent = texts.services;
+      document.querySelector('.nav-market').textContent = texts.market;
+      document.querySelector('.nav-social').textContent = texts.social;
+      document.querySelector('.nav-seo').textContent = texts.seo;
+      document.querySelector('.nav-web').textContent = texts.web;
+      document.querySelector('.nav-paid').textContent = texts.paid;
+      document.querySelector('.nav-contact').textContent = texts.contact;
+      document.getElementById('contact-btn').textContent = texts.contactBtn;
+    }
+
+    function updateFooterText(lang) {
+      const footerTexts = {
+        en: {
+          mission: 'Legatsy DMA\'s mission is to share the burden of small business owners by supporting them to find and manage clients effectively, so that they have time to serve their clients with love and attention.',
+          quick: 'Quick Links',
+          home: 'Home',
+          about: 'About',
+          services: 'Services',
+          contact: 'Contact Us',
+          serviceOverview: 'Service Overview',
+          market: 'Market Research',
+          paid: 'Paid Advertising',
+          seo: 'SEO Management',
+          social: 'Social Media Marketing',
+          web: 'Web Design and Maintenance',
+          legal: 'Legal',
+          privacy: 'Privacy Policy',
+          terms: 'Terms of Service'
+        },
+        fr: {
+          mission: 'La mission de Legatsy DMA est de partager le fardeau des propriétaires de petites entreprises en les aidant à trouver et gérer efficacement leurs clients, afin qu\'ils aient le temps de servir leurs clients avec amour et attention.',
+          quick: 'Liens rapides',
+          home: 'Accueil',
+          about: 'À propos',
+          services: 'Services',
+          contact: 'Contactez-nous',
+          serviceOverview: 'Aperçu des services',
+          market: 'Recherche de marché',
+          paid: 'Publicité payante',
+          seo: 'Gestion SEO',
+          social: 'Marketing des médias sociaux',
+          web: 'Conception et maintenance web',
+          legal: 'Légal',
+          privacy: 'Politique de confidentialité',
+          terms: 'Conditions de service'
+        },
+        es: {
+          mission: 'La misión de Legatsy DMA es compartir la carga de los propietarios de pequeñas empresas apoyándolos para encontrar y gestionar clientes de manera efectiva, para que tengan tiempo de servir a sus clientes con amor y atención.',
+          quick: 'Enlaces rápidos',
+          home: 'Inicio',
+          about: 'Acerca de',
+          services: 'Servicios',
+          contact: 'Contáctanos',
+          serviceOverview: 'Resumen de servicios',
+          market: 'Investigación de mercado',
+          paid: 'Publicidad pagada',
+          seo: 'Gestión SEO',
+          social: 'Marketing en redes sociales',
+          web: 'Diseño y mantenimiento web',
+          legal: 'Legal',
+          privacy: 'Política de privacidad',
+          terms: 'Términos de servicio'
+        }
+      };
+
+      const texts = footerTexts[lang];
+      document.getElementById('footer-mission').textContent = texts.mission;
+      document.getElementById('footer-quick').textContent = texts.quick;
+      document.getElementById('footer-home').textContent = texts.home;
+      document.getElementById('footer-about').textContent = texts.about;
+      document.getElementById('footer-services').textContent = texts.services;
+      document.getElementById('footer-contact').textContent = texts.contact;
+      document.getElementById('footer-service-overview').textContent = texts.serviceOverview;
+      document.getElementById('footer-market').textContent = texts.market;
+      document.getElementById('footer-paid').textContent = texts.paid;
+      document.getElementById('footer-seo').textContent = texts.seo;
+      document.getElementById('footer-social').textContent = texts.social;
+      document.getElementById('footer-web').textContent = texts.web;
+      document.getElementById('footer-legal').textContent = texts.legal;
+      document.getElementById('footer-privacy').textContent = texts.privacy;
+      document.getElementById('footer-terms').textContent = texts.terms;
+    }
+
+    // Auto-detect browser language on page load
+    window.addEventListener('load', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      const browserLanguage = navigator.language.substring(0, 2);
+      
+      let defaultLanguage = 'en';
+      
+      if (savedLanguage && ['en', 'fr', 'es'].includes(savedLanguage)) {
+        defaultLanguage = savedLanguage;
+      } else if (['fr', 'es'].includes(browserLanguage)) {
+        defaultLanguage = browserLanguage;
+      }
+      
+      if (defaultLanguage !== 'en') {
+        switchLanguage(defaultLanguage);
+      }
+    });
+  </script>
 </body>
 </html>
