@@ -952,3 +952,82 @@ footer {
     padding-left: 1rem;
   }
 }
+
+.logo img {
+    height: 70px; /* <-- Change this value */
+    width: auto; /* Keep this to maintain proportions */
+}
+
+/* --- Styles for the container holding the two "buttons" --- */
+.hero-buttons-wrapper {
+    display: flex; /* Arranges children side-by-side on desktop */
+    align-items: center; /* Vertically centers them */
+    margin-top: 2rem; /* Adjust spacing from content above if needed */
+    margin-bottom: 2rem; /* Adjust spacing from content below if needed */
+}
+
+/* --- Style the "Let's work together" span to look like the .badge --- */
+.lets-work-together-btn {
+    /* Copying styles from the .badge class */
+    background: linear-gradient(135deg, #000, #333); /* Background from .badge */
+    color: #fff;
+    font-size: 0.8rem; /* Font size from .badge */
+    padding: 0.5rem 1rem; /* Padding from .badge */
+    border-radius: 25px; /* Border radius from .badge */
+    display: inline-block; /* Makes it behave like a block but sit inline */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* Indicates it's clickable */
+    transition: all 0.3s ease; /* Adds smooth transition for hover */
+    
+    /* Spacing between the two "buttons" on desktop */
+    margin-left: 15px; 
+}
+
+/* Shimmer effect for the new button (copied from .badge::before) */
+.lets-work-together-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite; /* Uses the existing shimmer keyframes */
+}
+
+/* Hover effect for the new button */
+.lets-work-together-btn:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* --- Mobile Responsive Fixes --- */
+@media (max-width: 768px) {
+    /* Make the container stack its children vertically on mobile */
+    .hero-buttons-wrapper {
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center; /* Centers stacked items horizontally */
+        width: 100%; /* Ensures wrapper takes full width */
+        margin-top: 1.5rem; /* Adjust top margin for mobile */
+        margin-bottom: 1.5rem; /* Adjust bottom margin for mobile */
+    }
+
+    /* Adjust spacing and width for individual "buttons" on mobile */
+    .hero-buttons-wrapper .badge,
+    .hero-buttons-wrapper .lets-work-together-btn {
+        width: 100%; /* Makes them take full width on mobile */
+        margin-left: 0; /* Removes horizontal margin */
+        margin-top: 15px; /* Adds vertical spacing between them */
+        text-align: center; /* Centers text within the "buttons" */
+    }
+    
+    /* Remove the extra top margin for the very first item in the stack */
+    .hero-buttons-wrapper .badge:first-child {
+        margin-top: 0; 
+    }
+}
